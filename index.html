@@ -2138,6 +2138,416 @@
     border-color: #334155;
   }
 
+  /* ========================================================
+     DUOLINGO-STYLE UNIT GUIDEBOOK (BAB AWAL & PANDUAN BELAJAR)
+     ======================================================== */
+  .divisi-guidebook-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 245, 255, 0.85) 100%);
+    border: 1px solid rgba(0, 113, 227, 0.22);
+    border-radius: 20px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 4px 16px rgba(0, 113, 227, 0.06);
+    cursor: pointer;
+    transition: all 0.25s var(--ease-apple);
+    position: relative;
+    overflow: hidden;
+  }
+  .divisi-guidebook-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 113, 227, 0.12);
+    border-color: var(--accent);
+  }
+  .divisi-guidebook-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent);
+    border-radius: 4px 0 0 4px;
+  }
+  .guidebook-card-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+  }
+  .guidebook-icon-badge {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #0071e3 0%, #005bb5 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+  }
+  .guidebook-icon-badge svg {
+    width: 22px;
+    height: 22px;
+    stroke: #ffffff;
+  }
+  .guidebook-text-wrap {
+    flex: 1;
+    min-width: 0;
+  }
+  .guidebook-tag-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 3px;
+  }
+  .guidebook-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+  .guidebook-read-time {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--label-tertiary);
+    background: rgba(0, 0, 0, 0.05);
+    padding: 2px 7px;
+    border-radius: 999px;
+  }
+  .guidebook-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--label-primary);
+    margin: 0 0 2px 0;
+    letter-spacing: -0.01em;
+  }
+  .guidebook-desc {
+    font-size: 12.5px;
+    color: var(--label-secondary);
+    line-height: 1.4;
+    margin: 0;
+  }
+  .btn-guidebook-cta {
+    padding: 9px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Guidebook Item in Soal List */
+  .divisi-soal-item.guidebook-item {
+    border-left: 3.5px solid var(--accent);
+    background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+  }
+  .soal-num-badge.guidebook-num {
+    background: rgba(0, 113, 227, 0.1);
+    color: var(--accent);
+  }
+
+  /* Guidebook Modal Dialog */
+  .guidebook-dialog {
+    max-width: 680px;
+    width: 94%;
+    max-height: 88vh;
+    padding: 0;
+    border-radius: 26px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 24px 64px rgba(15, 23, 42, 0.28);
+  }
+  .guidebook-modal-header {
+    padding: 22px 24px 16px;
+    border-bottom: 1px solid var(--separator);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    background: #fbfbfd;
+  }
+  .guidebook-header-left {
+    flex: 1;
+    min-width: 0;
+  }
+  .guidebook-modal-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .guidebook-modal-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--label-primary);
+    margin: 0 0 4px;
+    letter-spacing: -0.02em;
+  }
+  .guidebook-modal-subtitle {
+    font-size: 13px;
+    color: var(--label-secondary);
+    line-height: 1.45;
+    margin: 0;
+  }
+  .guidebook-modal-body {
+    padding: 20px 24px;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.18) transparent;
+  }
+  .guidebook-card-section {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 16px 18px;
+  }
+  .guidebook-section-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--label-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .guidebook-section-title svg {
+    color: var(--accent);
+  }
+  .guidebook-overview-text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--label-secondary);
+  }
+
+  /* Formula Anatomy Chips (Duolingo Style) */
+  .formula-anatomy-item {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 12px;
+  }
+  .formula-anatomy-item:last-child {
+    margin-bottom: 0;
+  }
+  .anatomy-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .anatomy-fn-name {
+    font-family: "SF Mono", monospace;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .anatomy-fn-tag {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--label-tertiary);
+    background: #f2f2f7;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+  .anatomy-chips-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 8px 10px;
+    background: #f8fafc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px dashed #cbd5e1;
+  }
+  .syntax-token-pill {
+    font-family: "SF Mono", monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+  .token-fn { background: rgba(0, 113, 227, 0.12); color: #0071e3; }
+  .token-arg1 { background: rgba(52, 199, 89, 0.12); color: #248a3d; }
+  .token-arg2 { background: rgba(255, 149, 0, 0.12); color: #b45309; }
+  .token-arg3 { background: rgba(175, 82, 222, 0.12); color: #8944ab; }
+  .token-arg4 { background: rgba(239, 68, 68, 0.12); color: #dc2626; }
+  .token-sep { color: var(--label-tertiary); font-weight: 400; }
+  .anatomy-tokens-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 6px;
+    font-size: 11.5px;
+    color: var(--label-secondary);
+    line-height: 1.4;
+  }
+  .legend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .legend-bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  /* Comparison & Traps */
+  .comparison-row {
+    margin-bottom: 10px;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  .comparison-row:last-child { margin-bottom: 0; }
+  .comparison-q {
+    font-weight: 700;
+    color: var(--label-primary);
+    margin-bottom: 2px;
+  }
+  .comparison-a {
+    color: var(--label-secondary);
+  }
+  .trap-card {
+    background: #fffbeb;
+    border-left: 3.5px solid #f59e0b;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .trap-card:last-child { margin-bottom: 0; }
+  .trap-title {
+    font-weight: 700;
+    color: #92400e;
+    margin-bottom: 2px;
+  }
+  .trap-desc {
+    color: #78350f;
+  }
+
+  /* Guidebook Modal Footer */
+  .guidebook-modal-footer {
+    padding: 14px 24px;
+    border-top: 1px solid var(--separator);
+    background: #fbfbfd;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .btn-guidebook-start {
+    padding: 10px 18px;
+    font-size: 13.5px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #ffffff;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+  }
+  .btn-guidebook-start:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+  }
+
+  /* Dark Mode */
+  [data-theme="dark"] .divisi-guidebook-card {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+  [data-theme="dark"] .guidebook-dialog {
+    background: #1e293b;
+    color: #f8fafc;
+  }
+  [data-theme="dark"] .guidebook-modal-header,
+  [data-theme="dark"] .guidebook-modal-footer {
+    background: #0f172a;
+    border-color: #334155;
+  }
+  [data-theme="dark"] .guidebook-card-section {
+    background: #0f172a;
+    border-color: #334155;
+  }
+  [data-theme="dark"] .formula-anatomy-item {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  [data-theme="dark"] .anatomy-chips-wrap {
+    background: #0f172a;
+    border-color: #334155;
+  }
+  [data-theme="dark"] .trap-card {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: #f59e0b;
+  }
+  [data-theme="dark"] .trap-title { color: #fbbf24; }
+  [data-theme="dark"] .trap-desc { color: #fef3c7; }
+
+  /* Mobile overrides */
+  @media (max-width: 880px) {
+    .divisi-guidebook-card {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 14px;
+      gap: 12px;
+    }
+    .guidebook-card-right {
+      width: 100%;
+    }
+    .btn-guidebook-cta {
+      width: 100%;
+      justify-content: center;
+    }
+    .guidebook-dialog {
+      width: 95%;
+      max-height: 92vh;
+      border-radius: 20px;
+    }
+    .guidebook-modal-header {
+      padding: 16px;
+    }
+    .guidebook-modal-body {
+      padding: 14px 16px;
+      gap: 14px;
+    }
+    .guidebook-modal-footer {
+      padding: 12px 16px;
+      flex-direction: column-reverse;
+      gap: 8px;
+    }
+    .guidebook-modal-footer .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
   /* Sticky Headers on Excel Grid */
   table.sheet thead th {
     position: sticky;
@@ -3547,6 +3957,40 @@
   </div>
 </div>
 
+<!-- Duolingo-Style Unit Guidebook Modal (Bab Awal & Panduan Belajar) -->
+<div class="modal-overlay" id="guidebookModal" onclick="if(event.target===this)tutupGuidebookModal()">
+  <div class="modal-dialog guidebook-dialog">
+    <!-- Guidebook Header -->
+    <div class="guidebook-modal-header">
+      <div class="guidebook-header-left">
+        <div class="guidebook-modal-badge" id="guidebookModalBadge">Sales &amp; Marketing • Bab 0</div>
+        <h2 class="guidebook-modal-title" id="guidebookModalTitle">Fondasi Rumus &amp; Anatomi Argumen</h2>
+        <p class="guidebook-modal-subtitle" id="guidebookModalSubtitle">Pelajari aturan sintaks dan jebakan teknis sebelum simulasi spreadsheet.</p>
+      </div>
+      <button class="icon-btn-toggle" onclick="tutupGuidebookModal()" title="Tutup Panduan">
+        <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Scrollable Body with Structured Scannable Cards -->
+    <div class="guidebook-modal-body" id="guidebookModalContent">
+      <!-- Dynamically populated by renderGuidebookContent() -->
+    </div>
+
+    <!-- Tactile Apple Action Footer -->
+    <div class="guidebook-modal-footer">
+      <button class="btn btn-outline" type="button" onclick="tutupGuidebookModal()">
+        Tutup Panduan
+      </button>
+      <button class="btn btn-primary btn-guidebook-start" type="button" id="btnGuidebookStartMisi" onclick="mulaiMisi1DariGuidebook()">
+        <span>Paham, Mulai Latihan Soal (Misi 1)</span>
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        <span class="btn-kbd-hint">↵ Enter</span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- Header -->
 <header>
   <div class="wrap">
@@ -3721,6 +4165,29 @@
     </div>
   </div>
 
+  <!-- Duolingo-Style Unit Guidebook Card ("Bab Awal / Panduan Fondasi") -->
+  <div class="divisi-guidebook-card" id="divisiGuidebookBanner" onclick="bukaGuidebookDivisi(state.divisi)">
+    <div class="guidebook-card-left">
+      <div class="guidebook-icon-badge">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </div>
+      <div class="guidebook-text-wrap">
+        <div class="guidebook-tag-row">
+          <span class="guidebook-tag" id="guidebookBannerTag">Bab 0 • Panduan &amp; Fondasi Belajar</span>
+          <span class="guidebook-read-time" id="guidebookBannerReadTime">3 Menit Baca</span>
+        </div>
+        <h3 class="guidebook-title" id="guidebookBannerTitle">Fondasi Rumus &amp; Jebakan Seleksi Kerja</h3>
+        <p class="guidebook-desc" id="guidebookBannerDesc">Pahami cara kerja rumus, anatomi argumen, dan 3 kesalahan fatal sebelum masuk ke simulasi spreadsheet.</p>
+      </div>
+    </div>
+    <div class="guidebook-card-right">
+      <button class="btn btn-primary btn-guidebook-cta" type="button" onclick="event.stopPropagation(); bukaGuidebookDivisi(state.divisi)">
+        <span>Buka Panduan Bab</span>
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+  </div>
+
   <!-- List of Questions ("ada list soalnya") -->
   <div class="divisi-soal-section">
     <div class="divisi-soal-heading">
@@ -3771,6 +4238,12 @@
         <button type="button" class="btn btn-outline btn-nav-apple btn-briefing-pill" onclick="bukaBriefingAwal()" title="Buka Percakapan &amp; Arahan Manager">
           <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           <span class="nav-text">Briefing</span>
+        </button>
+
+        <!-- Duolingo-Style Unit Guidebook Button -->
+        <button type="button" class="btn btn-outline btn-nav-apple btn-guidebook-nav-pill" onclick="bukaGuidebookDivisi(state.divisi)" title="Buku Panduan Konsep &amp; Fondasi Bab Ini">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span class="nav-text">Panduan Bab</span>
         </button>
 
         <!-- Official Certificate Modal Button -->
@@ -4256,6 +4729,240 @@ const DIVISI = {
     warna: '#d97706',
     icon: '<svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
     desk: 'Pencatatan presensi absensi harian dan perhitungan komponen gaji lembur staf.'
+  }
+};
+
+const DIVISION_GUIDEBOOKS = {
+  sales: {
+    badge: 'Sales & Marketing • Bab 0',
+    title: 'Fondasi Analisis Omzet & Skema Target Penjualan',
+    subtitle: 'Kuasai cara kerja SUMIF, IF logika, dan COUNTIF sebelum memulai rekapitulasi data cabang.',
+    readTime: '3 Menit Baca',
+    overview: 'Di divisi Sales & Marketing, ribuan baris transaksi mingguan masuk dari berbagai kota. Kunci kerja seorang analis adalah mampu menyaring angka secara otomatis berdasarkan syarat spesifik (seperti cabang Jakarta atau transaksi di atas 100 juta) tanpa kalkulasi manual.',
+    keyFormulas: [
+      {
+        name: 'SUMIF',
+        tag: 'Penjumlahan Bersyarat',
+        syntax: '=SUMIF(range_kriteria, kriteria, [sum_range])',
+        tokens: [
+          { token: '=SUMIF', desc: 'Awalan formula penjumlahan bersyarat' },
+          { token: 'A2:A7', desc: 'Kolom Cabang yang diuji kriterianya' },
+          { token: '"Jakarta"', desc: 'Kriteria teks wajib diapit tanda kutip dua' },
+          { token: 'B2:B7', desc: 'Kolom Penjualan yang akan dijumlahkan' }
+        ],
+        example: '=SUMIF(A2:A7, "Jakarta", B2:B7)',
+        explanation: 'Menjumlahkan angka pada kolom B jika nama cabang pada kolom A adalah "Jakarta".'
+      },
+      {
+        name: 'IF',
+        tag: 'Logika Keputusan Bonus',
+        syntax: '=IF(kondisi_logika, nilai_benar, nilai_salah)',
+        tokens: [
+          { token: '=IF', desc: 'Awalan formula logika keputusan' },
+          { token: 'C2>=B2', desc: 'Apakah capaian sales (C2) melampaui target (B2)?' },
+          { token: 'C2*0.05', desc: 'Jika ya: beri komisi 5%' },
+          { token: 'C2*0.02', desc: 'Jika tidak: beri komisi standar 2%' }
+        ],
+        example: '=IF(C2>=B2, C2*5%, C2*2%)',
+        explanation: 'Menguji kondisi capaian sales untuk menentukan persentase komisi secara otomatis.'
+      }
+    ],
+    comparison: [
+      {
+        q: 'Kapan pakai SUMIF vs COUNTIF?',
+        ans: 'Gunakan SUMIF jika ingin MENJUMLAHKAN TOTAL UANG/ANGKA dengan syarat. Gunakan COUNTIF jika hanya ingin MENGHITUNG BERAPA BANYAK TRANSAKSI.'
+      },
+      {
+        q: 'Kapan pakai IF vs SUMIF?',
+        ans: 'Gunakan IF untuk menentukan KEPUTUSAN per baris (misal: Lulus/Gagal, Komisi 5%/2%). Gunakan SUMIF untuk merekap total kumulatif satu kategori dari sekumpulan baris.'
+      }
+    ],
+    traps: [
+      {
+        title: 'Lupa Tanda Kutip Dua pada Teks',
+        desc: 'Menulis =SUMIF(A2:A7, Jakarta, B2:B7) tanpa kutip dua akan menghasilkan error #NAME? karena Excel mengira Jakarta adalah nama variabel rumus.'
+      },
+      {
+        title: 'Panjang Rentang Tidak Simetris',
+        desc: 'Jika kolom kriteria A2:A7 (6 baris), maka sum_range wajib B2:B7 (6 baris). Jika ditulis B2:B10, hasil perhitungan akan melenceng.'
+      },
+      {
+        title: 'Regional Format Koma vs Titik Koma',
+        desc: 'Perhatikan pemisah rumus pada komputermu: gunakan koma (,) untuk setting baku US/Inggris, atau titik koma (;) untuk setting Indonesia.'
+      }
+    ]
+  },
+  keuangan: {
+    badge: 'Keuangan & Akuntansi • Bab 0',
+    title: 'Fondasi Arus Kas, Neraca & Rekonsiliasi Faktur',
+    subtitle: 'Kuasai audit kas masuk, saldo jatuh tempo, dan pencarian akun via VLOOKUP sebelum simulasi spreadsheet.',
+    readTime: '3 Menit Baca',
+    overview: 'Divisi Finance & Accounting menuntut akurasi 100% tanpa toleransi selisih. Fondasi utamanya adalah memvalidasi arus kas masuk/keluar, menyaring invoice jatuh tempo, dan mencocokkan kode akun buku besar via VLOOKUP.',
+    keyFormulas: [
+      {
+        name: 'VLOOKUP',
+        tag: 'Pencarian Database Akun',
+        syntax: '=VLOOKUP(lookup_value, table_array, col_index, [exact_match])',
+        tokens: [
+          { token: '=VLOOKUP', desc: 'Mencari data vertikal ke bawah pada tabel' },
+          { token: '"SLS-03"', desc: 'Kunci unik faktur atau akun yang dicari' },
+          { token: 'A2:C6', desc: 'Seluruh area tabel referensi database' },
+          { token: '2', desc: 'Ambil nilai dari kolom ke-2 tabel' },
+          { token: 'FALSE', desc: 'Wajib FALSE/0 agar hasil tepat 100% (Exact Match)' }
+        ],
+        example: '=VLOOKUP("SLS-03", A2:C6, 2, FALSE)',
+        explanation: 'Mencari kode SLS-03 pada kolom pertama tabel A2:C6 lalu mengembalikan nama salesman di kolom ke-2.'
+      },
+      {
+        name: 'SUM',
+        tag: 'Penjumlahan Total Saldo',
+        syntax: '=SUM(number1, [number2], ...)',
+        tokens: [
+          { token: '=SUM', desc: 'Menjumlahkan seluruh angka dalam rentang' },
+          { token: 'B2:B6', desc: 'Rentang sel nominal uang atau kas masuk' }
+        ],
+        example: '=SUM(B2:B6)',
+        explanation: 'Menghitung total keseluruhan saldo debit/kredit pada buku kas.'
+      }
+    ],
+    comparison: [
+      {
+        q: 'Kapan memakai parameter FALSE pada VLOOKUP?',
+        ans: 'Hampir 99% tes kerja akuntansi dan administrasi mewajibkan parameter ke-4 diisi FALSE (atau angka 0) agar pencarian menghasilkan data yang persis cocok.'
+      },
+      {
+        q: 'Kenapa VLOOKUP menghasilkan error #N/A?',
+        ans: 'Penyebab utama: kode yang dicari tidak ditemukan pada kolom pertama tabel referensi, atau terdapat spasi tersembunyi.'
+      }
+    ],
+    traps: [
+      {
+        title: 'Lupa Mengisi Parameter ke-4 FALSE',
+        desc: 'Jika parameter ke-4 dikosongkan, VLOOKUP otomatis default ke TRUE (perkiraan terdekat) yang berakibat fatal pada angka saldo faktur.'
+      },
+      {
+        title: 'Kolom Acuan Tidak di Paling Kiri',
+        desc: 'VLOOKUP hanya bisa mencari ke arah kanan. Nilai lookup_value wajib selalu berada di kolom pertama (paling kiri) dari table_array.'
+      },
+      {
+        title: 'Format Angka Tertulis Sebagai Teks',
+        desc: 'Angka nominal seperti "Rp 10.000" yang diketik manual dengan teks tidak dapat dihitung oleh formula matematika.'
+      }
+    ]
+  },
+  admin: {
+    badge: 'Administrasi & Logistik • Bab 0',
+    title: 'Fondasi Manajemen Inventaris & Arsip Operasional',
+    subtitle: 'Pahami cara memetakan ribuan aset kantor, status utilitas, dan rata-rata masa pakai inventaris.',
+    readTime: '3 Menit Baca',
+    overview: 'Divisi Administrasi & GA bertanggung jawab atas kelancaran operasional kantor: mencatat inventaris laptop dan kendaraan operasional, menyaring karyawan aktif, serta mengarsipkan data logistik.',
+    keyFormulas: [
+      {
+        name: 'COUNTIF',
+        tag: 'Hitung Frekuensi Aset',
+        syntax: '=COUNTIF(range, kriteria)',
+        tokens: [
+          { token: '=COUNTIF', desc: 'Menghitung berapa kali kriteria muncul' },
+          { token: 'B2:B6', desc: 'Kolom status aset yang diperiksa' },
+          { token: '"Tersedia"', desc: 'Nilai kondisi yang ingin dihitung' }
+        ],
+        example: '=COUNTIF(B2:B6, "Tersedia")',
+        explanation: 'Menghitung berapa banyak unit barang di rentang B2:B6 yang siap dipakai (berstatus Tersedia).'
+      },
+      {
+        name: 'AVERAGE',
+        tag: 'Rata-Rata Nilai Pengadaan',
+        syntax: '=AVERAGE(range)',
+        tokens: [
+          { token: '=AVERAGE', desc: 'Menghitung nilai rata-rata aritmatika' },
+          { token: 'C2:C6', desc: 'Rentang nilai skor atau harga pengadaan' }
+        ],
+        example: '=AVERAGE(C2:C6)',
+        explanation: 'Menghitung rata-rata skor performa atau rata-rata biaya logistik kantor.'
+      }
+    ],
+    comparison: [
+      {
+        q: 'Perbedaan argumen COUNTIF vs SUMIF?',
+        ans: 'COUNTIF hanya butuh 2 argumen (rentang dan kriteria). Jangan menambahkan argumen ketiga seperti pada SUMIF.'
+      },
+      {
+        q: 'Bagaimana menghitung sel kosong?',
+        ans: 'Untuk menghitung data yang belum terisi di administrasi, gunakan COUNTBLANK atau kriteria "" pada COUNTIF.'
+      }
+    ],
+    traps: [
+      {
+        title: 'Salah Menambah Argumen ke-3 pada COUNTIF',
+        desc: 'Banyak peserta tes mengetik =COUNTIF(A2:A10, "Aktif", B2:B10). Ini salah kaprah karena argumen ketiga hanya ada pada SUMIF.'
+      },
+      {
+        title: 'Spasi Gaib di Akhir Kata',
+        desc: 'Jika data di sel adalah "Tersedia " (ada spasi), kriteria "Tersedia" tidak akan terhitung. Selalu bersihkan spasi ekstra.'
+      },
+      {
+        title: 'Range Sel Mengikutsertakan Baris Judul',
+        desc: 'Memasukkan baris header (misal A1:A10) ke dalam formula perhitungan sering menimbulkan error tipe data.'
+      }
+    ]
+  },
+  hr: {
+    badge: 'Human Resources (HRD) • Bab 0',
+    title: 'Fondasi Payroll, Evaluasi Wawancara & Status PKWT',
+    subtitle: 'Pelajari rekapitulasi data personalia, rasio kontrak kerja, dan ambang kelulusan skor interview.',
+    readTime: '3 Menit Baca',
+    overview: 'Divisi HRD mengelola aset terpenting perusahaan: manusia. Analis HR bertugas menghitung rasio karyawan PKWT vs tetap, memverifikasi skor panel wawancara, serta menguji status kepatuhan ketenagakerjaan.',
+    keyFormulas: [
+      {
+        name: 'COUNTIF',
+        tag: 'Klasifikasi Karyawan PKWT',
+        syntax: '=COUNTIF(range, "PKWT")',
+        tokens: [
+          { token: '=COUNTIF', desc: 'Menghitung total baris yang cocok' },
+          { token: 'C2:C6', desc: 'Kolom status perjanjian kerja' },
+          { token: '"PKWT"', desc: 'Kategori karyawan kontrak' }
+        ],
+        example: '=COUNTIF(C2:C6, "PKWT")',
+        explanation: 'Menghitung total karyawan kontrak untuk pelaporan Dinas Tenaga Kerja.'
+      },
+      {
+        name: 'IF',
+        tag: 'Status Kelulusan Interview',
+        syntax: '=IF(skor >= ambang, "Lolos", "Gagal")',
+        tokens: [
+          { token: '=IF', desc: 'Pengujian ambang batas skor kelulusan' },
+          { token: 'D2>=75', desc: 'Apakah nilai tes kandidat minimal 75 poin?' },
+          { token: '"Lolos"', desc: 'Hasil jika memenuhi ambang batas' },
+          { token: '"Gagal"', desc: 'Hasil jika di bawah standar' }
+        ],
+        example: '=IF(D2>=75, "Lolos", "Gagal")',
+        explanation: 'Menetapkan keputusan seleksi kerja secara objektif dan instan.'
+      }
+    ],
+    comparison: [
+      {
+        q: 'Kapan memakai tanda perbandingan >= vs >?',
+        ans: 'Gunakan >= jika nilai batas masih termasuk (misal skor 75 tetap lolos). Gunakan > jika nilai batas tidak termasuk (harus 76 ke atas).'
+      },
+      {
+        q: 'Bagaimana menghitung rata-rata nilai tes kandidat?',
+        ans: 'Gunakan formula =AVERAGE(D2:D5) untuk melihat benchmark standar kualitas pelamar kerja.'
+      }
+    ],
+    traps: [
+      {
+        title: 'Typo Singkatan Status Resmi',
+        desc: 'Menulis "PKWT" berbeda dengan "pkwt " atau "Kontrak". Formula Excel peka terhadap spasi dan ejaan teks.'
+      },
+      {
+        title: 'Tanda Kutip pada Angka Perbandingan',
+        desc: 'Ketik D2>=75 tanpa tanda kutip. Jika ditulis D2>="75", angka akan dianggap teks dan logika evaluasi menjadi keliru.'
+      },
+      {
+        title: 'Lupa Kurung Tutup Formula Logika',
+        desc: 'Pada rumus IF bertingkat, jumlah kurung tutup di akhir wajib sama dengan jumlah IF yang dibuka.'
+      }
+    ]
   }
 };
 
@@ -6188,6 +6895,141 @@ function pilihDivisi(k) {
   bukaDivisiDetail(k);
 }
 
+// ==========================================
+// DUOLINGO-STYLE UNIT GUIDEBOOK ENGINE
+// ==========================================
+function bukaGuidebookDivisi(k) {
+  playSound('click');
+  const divKey = k || state.divisi || 'sales';
+  const gb = DIVISION_GUIDEBOOKS[divKey] || DIVISION_GUIDEBOOKS.sales;
+  const d = DIVISI[divKey];
+
+  const modal = document.getElementById('guidebookModal');
+  if (!modal) return;
+
+  document.getElementById('guidebookModalBadge').textContent = gb.badge;
+  document.getElementById('guidebookModalTitle').textContent = gb.title;
+  document.getElementById('guidebookModalSubtitle').textContent = gb.subtitle;
+
+  const contentEl = document.getElementById('guidebookModalContent');
+  if (contentEl) {
+    let formulasHtml = '';
+    gb.keyFormulas.forEach((fn) => {
+      let tokensHtml = '';
+      let legendHtml = '';
+      const colors = ['token-fn', 'token-arg1', 'token-arg2', 'token-arg3', 'token-arg4'];
+      const bulletColors = ['#0071e3', '#248a3d', '#b45309', '#8944ab', '#dc2626'];
+
+      fn.tokens.forEach((t, tIdx) => {
+        const cls = colors[tIdx % colors.length];
+        const bCol = bulletColors[tIdx % bulletColors.length];
+        tokensHtml += `<span class="syntax-token-pill ${cls}">${esc(t.token)}</span>`;
+        if (tIdx < fn.tokens.length - 1) tokensHtml += `<span class="token-sep">, </span>`;
+
+        legendHtml += `
+          <div class="legend-item">
+            <span class="legend-bullet" style="background: ${bCol}"></span>
+            <span><b>${esc(t.token)}:</b> ${esc(t.desc)}</span>
+          </div>
+        `;
+      });
+
+      formulasHtml += `
+        <div class="formula-anatomy-item">
+          <div class="anatomy-header-row">
+            <span class="anatomy-fn-name">${esc(fn.name)}</span>
+            <span class="anatomy-fn-tag">${esc(fn.tag)}</span>
+          </div>
+          <div class="anatomy-chips-wrap">
+            ${tokensHtml}
+          </div>
+          <div class="anatomy-tokens-legend">
+            ${legendHtml}
+          </div>
+          <div style="margin-top: 10px; font-size: 12px; color: var(--label-secondary); background: rgba(0,0,0,0.03); padding: 8px 10px; border-radius: 8px;">
+            <b>Contoh Pemakaian:</b> <code>${esc(fn.example)}</code> &mdash; ${esc(fn.explanation)}
+          </div>
+        </div>
+      `;
+    });
+
+    let compHtml = '';
+    gb.comparison.forEach(c => {
+      compHtml += `
+        <div class="comparison-row">
+          <div class="comparison-q">${esc(c.q)}</div>
+          <div class="comparison-a">${esc(c.ans)}</div>
+        </div>
+      `;
+    });
+
+    let trapsHtml = '';
+    gb.traps.forEach((tr, tIdx) => {
+      trapsHtml += `
+        <div class="trap-card">
+          <div class="trap-title">Jebakan ${tIdx + 1}: ${esc(tr.title)}</div>
+          <div class="trap-desc">${esc(tr.desc)}</div>
+        </div>
+      `;
+    });
+
+    contentEl.innerHTML = `
+      <!-- Section 1: Overview & Business Purpose -->
+      <div class="guidebook-card-section">
+        <div class="guidebook-section-title">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          Tujuan Belajar &amp; Kebutuhan Kantor (${esc(d?.label || 'Divisi')})
+        </div>
+        <p class="guidebook-overview-text">${esc(gb.overview)}</p>
+      </div>
+
+      <!-- Section 2: Formula Anatomy Breakdown (Duolingo Style) -->
+      <div class="guidebook-card-section">
+        <div class="guidebook-section-title">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+          Bedah Anatomi Argumen Rumus Kunci
+        </div>
+        ${formulasHtml}
+      </div>
+
+      <!-- Section 3: Practical Decision Rules -->
+      <div class="guidebook-card-section">
+        <div class="guidebook-section-title">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          Kapan Menggunakan Rumus yang Mana?
+        </div>
+        ${compHtml}
+      </div>
+
+      <!-- Section 4: Interview Traps -->
+      <div class="guidebook-card-section" style="border-color: rgba(245, 158, 11, 0.4); background: #fffdf5">
+        <div class="guidebook-section-title" style="color: #92400e">
+          <svg class="icon icon-sm" style="color: #f59e0b" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          3 Jebakan Terbanyak dalam Tes Masuk Kerja BUMN &amp; Korporat
+        </div>
+        ${trapsHtml}
+      </div>
+    `;
+  }
+
+  modal.classList.add('active');
+  modal.style.display = 'flex';
+}
+
+function tutupGuidebookModal() {
+  playSound('click');
+  const modal = document.getElementById('guidebookModal');
+  if (modal) {
+    modal.classList.remove('active');
+    modal.style.display = 'none';
+  }
+}
+
+function mulaiMisi1DariGuidebook() {
+  tutupGuidebookModal();
+  mulaiMisiDariList(state.divisi || 'sales', 0);
+}
+
 // Buka Detail Divisi Hub dengan Progress Bar & List Soal Lengkap
 function bukaDivisiDetail(k) {
   playSound('click');
@@ -6203,6 +7045,7 @@ function renderDivisiDetail(k) {
   const mascot = MASCOT_PROFILES[k];
   const ambiance = OFFICE_AMBIANCE[k];
   const lessons = LESSONS[k] || [];
+  const gb = DIVISION_GUIDEBOOKS[k] || DIVISION_GUIDEBOOKS.sales;
 
   const hubDeptBadge = document.getElementById('hubDeptBadge');
   if (hubDeptBadge) hubDeptBadge.textContent = d.label;
@@ -6227,6 +7070,16 @@ function renderDivisiDetail(k) {
 
   const hubMgrRole = document.getElementById('hubManagerRole');
   if (hubMgrRole && mascot) hubMgrRole.textContent = mascot.role;
+
+  // Update Top Guidebook Banner
+  const gbBannerTag = document.getElementById('guidebookBannerTag');
+  if (gbBannerTag) gbBannerTag.textContent = `${d.label} • Bab 0`;
+  const gbBannerTitle = document.getElementById('guidebookBannerTitle');
+  if (gbBannerTitle) gbBannerTitle.textContent = gb.title;
+  const gbBannerDesc = document.getElementById('guidebookBannerDesc');
+  if (gbBannerDesc) gbBannerDesc.textContent = gb.subtitle;
+  const gbBannerReadTime = document.getElementById('guidebookBannerReadTime');
+  if (gbBannerReadTime) gbBannerReadTime.textContent = gb.readTime;
 
   const hubMgrQuote = document.getElementById('hubManagerQuote');
   if (hubMgrQuote) {
@@ -6260,6 +7113,36 @@ function renderDivisiDetail(k) {
   const listEl = document.getElementById('hubSoalList');
   if (!listEl) return;
   listEl.innerHTML = '';
+
+  // Bab 0 Guidebook Pinned Entry (Duolingo Style: "Bab Awal / Fondasi Belajar")
+  const gbItem = document.createElement('div');
+  gbItem.className = 'divisi-soal-item guidebook-item';
+  gbItem.innerHTML = `
+    <div class="soal-left-content">
+      <div class="soal-num-badge guidebook-num" title="Bab 0: Fondasi Konsep & Rumus">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </div>
+      <div class="soal-info-wrap">
+        <div class="soal-title-row">
+          <span class="soal-title">Bab 0: Fondasi Rumus &amp; Anatomi Argumen (${esc(d.label)})</span>
+          <span class="pill-tag pill-accent">Rekomendasi Awal</span>
+        </div>
+        <div class="soal-desc">${esc(gb.subtitle)}</div>
+        <div class="soal-chips-row">
+          <span class="target-badge-pill" style="color:var(--accent);border-color:rgba(0,113,227,0.25);background:rgba(0,113,227,0.06)">Tipe: Panduan Konsep</span>
+          <span class="func-badge-pill">Estimasi: ${esc(gb.readTime)}</span>
+        </div>
+      </div>
+    </div>
+    <div class="soal-right-actions">
+      <button class="btn btn-primary btn-soal-action" onclick="event.stopPropagation(); bukaGuidebookDivisi('${k}')">
+        Buka Panduan
+        <svg class="icon icon-xs" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+  `;
+  gbItem.onclick = () => bukaGuidebookDivisi(k);
+  listEl.appendChild(gbItem);
 
   lessons.forEach((les, idx) => {
     const isDone = !!(state.progress[k] && state.progress[k][les.id]);
@@ -7684,8 +8567,21 @@ function tutupSuccessModalDanTetap() {
   }
 }
 
-// Global Keyboard Handler for Briefing Modal & Celebration Modal
+// Global Keyboard Handler for Briefing Modal, Guidebook Modal & Celebration Modal
 window.addEventListener('keydown', e => {
+  const guidebookModal = document.getElementById('guidebookModal');
+  if (guidebookModal && (guidebookModal.classList.contains('active') || guidebookModal.style.display === 'flex')) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      mulaiMisi1DariGuidebook();
+      return;
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      tutupGuidebookModal();
+      return;
+    }
+  }
+
   const briefingOverlay = document.getElementById('briefingOverlay');
   if (briefingOverlay && (briefingOverlay.classList.contains('active') || briefingOverlay.style.display === 'flex')) {
     if (e.key === 'Enter' || e.key === ' ') {
