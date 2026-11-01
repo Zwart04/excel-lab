@@ -2799,10 +2799,80 @@
       font-size: 11px !important;
     }
     .mobile-formula-strip {
+      display: none !important;
+    }
+    body[data-mode="ketik"] .mobile-formula-strip {
       display: flex !important;
       padding: 3px 0 !important;
       gap: 4px !important;
       margin-bottom: 6px !important;
+    }
+
+    .misi-unified-card {
+      padding: 8px 10px !important;
+      margin-bottom: 6px !important;
+      gap: 4px !important;
+    }
+    .misi-task-headline {
+      font-size: 13.5px !important;
+      line-height: 1.3 !important;
+      margin-bottom: 4px !important;
+    }
+    .formula-block-builder-card {
+      padding: 8px 10px !important;
+      margin-bottom: 6px !important;
+      border-radius: 12px !important;
+    }
+    .builder-card-header {
+      margin-bottom: 4px !important;
+    }
+    .builder-blocks-grid {
+      gap: 4px !important;
+      margin-top: 4px !important;
+    }
+    .builder-block-btn {
+      padding: 4px 6px !important;
+    }
+    .builder-block-btn .block-token-text {
+      font-size: 11.5px !important;
+    }
+    .builder-explanation-bar {
+      margin-top: 5px !important;
+      padding: 4px 8px !important;
+      font-size: 11px !important;
+    }
+    .panel-spreadsheet {
+      padding: 6px 8px !important;
+    }
+    .builder-blocks-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 6px !important;
+      margin-top: 6px !important;
+    }
+    .builder-block-btn {
+      min-width: 0 !important;
+      max-width: none !important;
+      padding: 6px 8px !important;
+      border-radius: 10px !important;
+    }
+    .block-badge-tag {
+      font-size: 9px !important;
+    }
+    .block-token-text {
+      font-size: 12px !important;
+    }
+    .block-desc-text {
+      font-size: 10px !important;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .builder-preview-strip {
+      min-height: 36px !important;
+      padding: 4px 8px !important;
+      font-size: 12.5px !important;
     }
     .strip-btn {
       min-width: 32px !important;
@@ -3671,6 +3741,364 @@
     }
   }
 
+
+  /* ========================================================
+     APPLE SEGMENTED TOGGLE (MODE PEMULA VS PRO)
+     ======================================================== */
+  .apple-segmented-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(118, 118, 128, 0.12);
+    padding: 2px;
+    border-radius: 980px;
+    user-select: none;
+    gap: 2px;
+  }
+  .segment-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border: none;
+    background: transparent;
+    border-radius: 980px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--label-secondary);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .segment-btn:hover {
+    color: var(--label-primary);
+  }
+  .segment-btn.active {
+    background: #ffffff;
+    color: #0071e3;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  [data-theme="dark"] .segment-btn.active {
+    background: #2c2c2e;
+    color: #2997ff;
+  }
+
+  /* ========================================================
+     FORMULA SMART BLOCK BUILDER (MODE PEMULA)
+     ======================================================== */
+  .formula-block-builder-card {
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+    border: 1px solid rgba(0, 113, 227, 0.2);
+    border-radius: 16px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(0, 113, 227, 0.04);
+    position: relative;
+    transition: all 0.25s var(--ease-apple);
+  }
+  .builder-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .builder-step-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .builder-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 113, 227, 0.1);
+    color: #0071e3;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 980px;
+  }
+  .builder-status-badge.complete {
+    background: rgba(36, 138, 61, 0.12);
+    color: #248a3d;
+  }
+  .builder-hint-text {
+    font-size: 12px;
+    color: var(--label-secondary);
+  }
+  .builder-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-builder-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .btn-builder-action:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+  }
+
+  .builder-preview-strip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 8px 12px;
+    min-height: 44px;
+    box-sizing: border-box;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .builder-preview-strip::-webkit-scrollbar { display: none; }
+  .builder-fx-icon {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    color: #0071e3;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .builder-tokens-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    color: #0f172a;
+  }
+  .assembled-token-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 600;
+    border: 1px solid rgba(3, 105, 161, 0.2);
+    white-space: nowrap;
+    animation: popIn 0.15s ease-out;
+  }
+  @keyframes popIn {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .builder-placeholder-text {
+    font-size: 12.5px;
+    color: #94a3b8;
+    font-style: italic;
+    font-family: var(--font-sans);
+  }
+  .builder-blinking-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 16px;
+    background: #0071e3;
+    animation: blinkCursor 1s infinite;
+    vertical-align: middle;
+    margin-left: 2px;
+  }
+  @keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .builder-blocks-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .builder-block-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    min-width: 100px;
+    flex: 1 1 auto;
+    max-width: 220px;
+  }
+  .builder-block-btn:hover:not(.completed) {
+    border-color: #0071e3;
+    background: #f0f7ff;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 113, 227, 0.1);
+  }
+  .builder-block-btn.active-target {
+    border-color: #0071e3 !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.22) !important;
+    transform: scale(1.02);
+  }
+  .builder-block-btn.completed {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    opacity: 0.55;
+    cursor: default;
+  }
+  .block-badge-tag {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #64748b;
+    margin-bottom: 2px;
+  }
+  .builder-block-btn.active-target .block-badge-tag {
+    color: #0071e3;
+  }
+  .block-token-text {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+  }
+  .block-desc-text {
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 3px;
+    line-height: 1.25;
+  }
+
+  .builder-explanation-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: #1e40af;
+  }
+
+  /* ========================================================
+     APPLE MORE (•••) DROPDOWN MENU
+     ======================================================== */
+  .apple-dropdown-wrap {
+    position: relative;
+    display: inline-block;
+  }
+  .apple-dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
+    padding: 6px;
+    min-width: 220px;
+    z-index: 120;
+    animation: dropFadeIn 0.15s ease-out;
+  }
+  @keyframes dropFadeIn {
+    0% { opacity: 0; transform: translateY(-4px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #1e293b;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.12s;
+  }
+  .dropdown-item:hover {
+    background: rgba(0, 113, 227, 0.08);
+    color: #0071e3;
+  }
+  .dropdown-separator {
+    height: 1px;
+    background: #e2e8f0;
+    margin: 4px 0;
+  }
+
+  /* ========================================================
+     LIVE SPREADSHEET CELL RANGE HIGHLIGHTS (EXCEL STYLE)
+     ======================================================== */
+  .range-hl-blue {
+    background: rgba(0, 113, 227, 0.12) !important;
+    border-color: #0071e3 !important;
+    color: #004fb0 !important;
+    font-weight: 600;
+  }
+  .range-hl-amber {
+    background: rgba(245, 158, 11, 0.14) !important;
+    border-color: #d97706 !important;
+    color: #b45309 !important;
+    font-weight: 600;
+  }
+  .range-hl-purple {
+    background: rgba(168, 85, 247, 0.14) !important;
+    border-color: #9333ea !important;
+    color: #7e22ce !important;
+    font-weight: 600;
+  }
+  .range-hl-emerald {
+    background: rgba(16, 185, 129, 0.14) !important;
+    border-color: #059669 !important;
+    color: #047857 !important;
+    font-weight: 600;
+  }
+
+  /* Target Cell Apple Blue Upgrade */
+  table.sheet td.sheet-cell.target-cell {
+    background: rgba(0, 113, 227, 0.05) !important;
+    border: 2px solid #0071e3 !important;
+    box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.15) !important;
+  }
+  .target-indicator {
+    background: #0071e3 !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    padding: 1px 5px !important;
+    font-weight: 600 !important;
+    font-size: 9px !important;
+    box-shadow: 0 1px 3px rgba(0, 113, 227, 0.3) !important;
+  }
+  .btn-cta-pulse {
+    animation: ctaPulse 1.6s infinite ease-in-out;
+  }
+  @keyframes ctaPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 2px 6px rgba(0, 113, 227, 0.2); }
+    50% { transform: scale(1.02); box-shadow: 0 0 0 6px rgba(0, 113, 227, 0.25); }
+  }
+
 </style>
 </head>
 <body>
@@ -4211,61 +4639,67 @@
 <section id="misi" class="screen">
   <!-- UNIFIED APPLE TASK HEADER (CLEAN & SIMPLE) -->
   <div class="misi-unified-card" id="misiUnifiedCard">
-    <!-- Top Row: Division Chip, Compact Stepper, and Navigation Cluster -->
+    <!-- Top Row: Back to Questions, Division Chip, Compact Stepper, Guidebook & More Menu -->
     <div class="misi-card-top-row">
       <div class="misi-context-cluster">
+        <button type="button" class="btn btn-outline btn-nav-apple btn-back-hub" onclick="bukaDivisiDetail(state.divisi)" title="Kembali ke Daftar Soal Divisi">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span class="nav-text">Daftar Soal</span>
+        </button>
         <span class="misi-dept-badge" id="misiDivisiLabel" onclick="bukaDivisiDetail(state.divisi)" title="Klik untuk lihat daftar soal">Sales &amp; Marketing</span>
-        <div class="misi-stepper-pill">
-          <button class="stepper-arrow-btn" id="btnPrevMisi" onclick="misiSebelumnya()" title="Misi Sebelumnya">
-            <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-          </button>
-          <span id="misiProgresLabel" class="stepper-label" onclick="bukaDivisiDetail(state.divisi)" title="Lihat Daftar Soal">Misi 1/5</span>
-          <button class="stepper-arrow-btn" id="btnNextMisi" onclick="misiBerikutnya()" title="Misi Selanjutnya">
-            <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </button>
-        </div>
+      </div>
+
+      <div class="misi-stepper-pill">
+        <button type="button" class="stepper-arrow-btn" id="btnPrevMisi" onclick="misiSebelumnya()" title="Misi Sebelumnya">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        </button>
+        <span id="misiProgresLabel" class="stepper-label" onclick="bukaDivisiDetail(state.divisi)" title="Lihat Daftar Soal">Misi 1/8</span>
+        <button type="button" class="stepper-arrow-btn" id="btnNextMisi" onclick="misiBerikutnya()" title="Misi Selanjutnya">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
       </div>
 
       <div class="misi-nav-cluster">
-        <!-- 15-Minute Countdown Interview Mode Timer -->
-        <button type="button" class="btn btn-outline btn-nav-apple btn-timer-pill" id="btnTimerToggle" onclick="toggleSimulasiTimer()" title="Mode Simulasi Ujian Kerja (15 Menit)">
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span class="timer-tag" id="timerLabel">Tes:</span>
-          <span class="timer-countdown" id="timerDisplay">15:00</span>
-        </button>
-
-        <!-- Interactive Manager Briefing Modal Button -->
-        <button type="button" class="btn btn-outline btn-nav-apple btn-briefing-pill" onclick="bukaBriefingAwal()" title="Buka Percakapan &amp; Arahan Manager">
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <span class="nav-text">Briefing</span>
-        </button>
-
         <!-- Duolingo-Style Unit Guidebook Button -->
         <button type="button" class="btn btn-outline btn-nav-apple btn-guidebook-nav-pill" onclick="bukaGuidebookDivisi(state.divisi)" title="Buku Panduan Konsep &amp; Fondasi Bab Ini">
           <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
           <span class="nav-text">Panduan Bab</span>
         </button>
 
-        <!-- Official Certificate Modal Button -->
-        <button type="button" class="btn btn-outline btn-nav-apple btn-cert-pill" onclick="bukaSertifikatModal()" title="Sertifikat Kompetensi Kerja">
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span class="nav-text">Sertifikat</span>
-        </button>
+        <!-- Apple More (•••) Dropdown Menu -->
+        <div class="apple-dropdown-wrap">
+          <button type="button" class="btn btn-outline btn-nav-apple btn-more-trigger" onclick="toggleMisiMoreMenu(event)" title="Menu Alat &amp; Fitur Tambahan">
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/><circle cx="5" cy="12" r="1.5"/></svg>
+            <span class="nav-text">Lainnya</span>
+          </button>
+          <div class="apple-dropdown-menu" id="misiMoreDropdown" style="display: none;">
+            <button type="button" class="dropdown-item" onclick="bukaBriefingAwal(); tutupMisiMoreMenu();">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Ulangi Briefing Manager</span>
+            </button>
+            <button type="button" class="dropdown-item" onclick="toggleSimulasiTimer(); tutupMisiMoreMenu();">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span id="moreMenuTimerText">Simulasi Ujian (15 Menit)</span>
+            </button>
+            <button type="button" class="dropdown-item" onclick="bukaCheatSheetModal(); tutupMisiMoreMenu();">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <span>Cheat Sheet Rumus</span>
+            </button>
+            <button type="button" class="dropdown-item" onclick="bukaSertifikatModal(); tutupMisiMoreMenu();">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>Sertifikat Kompetensi</span>
+            </button>
+            <div class="dropdown-separator"></div>
+            <button type="button" class="dropdown-item" onclick="show('pilih'); tutupMisiMoreMenu();">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              <span>Ganti Divisi</span>
+            </button>
+          </div>
+        </div>
 
-        <!-- Interactive Formula Cheat Sheet Button -->
-        <button type="button" class="btn btn-outline btn-nav-apple" onclick="bukaCheatSheetModal()" title="Buku Saku &amp; Cheat Sheet Rumus Kerja">
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-          <span class="nav-text">Cheat Sheet</span>
-        </button>
-
-        <button class="btn btn-outline btn-nav-apple" onclick="bukaDivisiDetail(state.divisi)" title="Lihat Daftar Soal Divisi Ini">
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-          <span class="nav-text">Daftar Soal</span>
-        </button>
-        <button class="btn btn-ghost btn-nav-apple" onclick="show('pilih')" title="Ganti Divisi">
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          <span class="nav-text">Divisi</span>
-        </button>
+        <!-- Hidden timer anchor for backward compatibility -->
+        <span id="timerDisplay" style="display:none;">15:00</span>
+        <button id="btnTimerToggle" style="display:none;"></button>
       </div>
     </div>
 
@@ -4278,11 +4712,23 @@
       </div>
 
       <div class="misi-task-pills">
-        <div class="meta-tag-pill target-pill" title="Sel Target">
+        <!-- Learning Mode Toggle (Beginner Block Builder vs Pro Keyboard) -->
+        <div class="apple-segmented-toggle">
+          <button type="button" class="segment-btn active" id="btnModeBalok" onclick="setModeBelajar('balok')" title="Mode Pemula: Susun rumus dengan mengklik balok interaktif">
+            <svg class="icon icon-xs" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
+            <span>Mode Pemula</span>
+          </button>
+          <button type="button" class="segment-btn" id="btnModeKetik" onclick="setModeBelajar('ketik')" title="Ketik rumus manual langsung di formula bar">
+            <svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+            <span>Ketik Pro</span>
+          </button>
+        </div>
+
+        <div class="meta-tag-pill target-pill" title="Sel Target Pengerjaan">
           <span class="lbl">Target:</span>
           <span class="val" id="taskTargetBadge">B10</span>
         </div>
-        <div class="meta-tag-pill func-pill" title="Rumus Rekomendasi">
+        <div class="meta-tag-pill func-pill" title="Rumus Utama">
           <span class="lbl">Rumus:</span>
           <span class="val" id="taskFuncBadge">SUMIF</span>
         </div>
@@ -4351,6 +4797,43 @@
       </div>
 
       <!-- Formula Bar with Authentic Excel Actions -->
+            <!-- Duolingo-Style Formula Smart Block Builder (For Beginners) -->
+      <div class="formula-block-builder-card" id="formulaBlockBuilderCard">
+        <div class="builder-card-header">
+          <div class="builder-step-meta">
+            <span class="builder-status-badge" id="builderStepBadge">Langkah 1: Klik Balok Fungsi</span>
+            <span class="builder-hint-text" id="builderHintText">Susun rumus dengan mengklik balok di bawah secara berurutan.</span>
+          </div>
+          <div class="builder-header-actions">
+            <button type="button" class="btn-builder-action" onclick="undoFormulaBlock()" title="Batalkan balok terakhir">
+              <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg>
+              <span>Hapus Balok</span>
+            </button>
+            <button type="button" class="btn-builder-action" onclick="resetFormulaBlocks()" title="Ulangi dari awal">
+              <svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              <span>Reset</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Real-time Assembled Formula Preview Strip -->
+        <div class="builder-preview-strip">
+          <div class="builder-fx-icon">fx</div>
+          <div class="builder-tokens-container" id="builderTokensAssembled">
+            <span class="builder-placeholder-text">Klik balok di bawah untuk menyusun formula...</span>
+          </div>
+        </div>
+
+        <!-- Available Clickable Smart Blocks Container -->
+        <div class="builder-blocks-grid" id="builderAvailableBlocks"></div>
+
+        <!-- Educational Meaning Pill -->
+        <div class="builder-explanation-bar" id="builderExplanationBar" style="display: none;">
+          <svg class="icon icon-xs" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span id="builderExplanationText"></span>
+        </div>
+      </div>
+
       <div class="formula-bar-wrap">
         <div class="formula-bar">
           <div class="cell-badge" id="cellNameBox">A1</div>
@@ -7313,17 +7796,394 @@ function highlightRangeCells(startKey, endKey) {
 }
 
 // Render Spreadsheet Grid with Column Drag Resizing & Active Excel In-Cell Editor
+
+// ==========================================
+// FORMULA SMART BLOCK BUILDER & LIVE HIGHLIGHT ENGINE
+// ==========================================
+let activeFormulaBlocks = [];
+let assembledBlockIndices = [];
+let activeLearningMode = localStorage.getItem('excel_lab_learning_mode') || 'balok';
+
+function setModeBelajar(mode) {
+  playSound('click');
+  activeLearningMode = mode;
+  localStorage.setItem('excel_lab_learning_mode', mode);
+  updateModeBelajarUI();
+}
+
+function updateModeBelajarUI() {
+  const btnBalok = document.getElementById('btnModeBalok');
+  const btnKetik = document.getElementById('btnModeKetik');
+  const builderCard = document.getElementById('formulaBlockBuilderCard');
+  document.body.setAttribute('data-mode', activeLearningMode);
+  
+  if (activeLearningMode === 'balok') {
+    if (btnBalok) btnBalok.classList.add('active');
+    if (btnKetik) btnKetik.classList.remove('active');
+    if (builderCard) builderCard.style.display = 'block';
+  } else {
+    if (btnBalok) btnBalok.classList.remove('active');
+    if (btnKetik) btnKetik.classList.add('active');
+    if (builderCard) builderCard.style.display = 'none';
+  }
+}
+
+function parseFormulaToBlocks(fix) {
+  if (!fix) return [];
+  const fnMatch = fix.match(/^=([A-Z]+)\(/);
+  if (!fnMatch) return [{ text: fix, label: fix, badge: 'Rumus', desc: fix }];
+  const fnName = fnMatch[1];
+  const inner = fix.slice(fnMatch[0].length, -1);
+  
+  const args = [];
+  let cur = '';
+  let inQuotes = false;
+  let parenDepth = 0;
+  for (let i = 0; i < inner.length; i++) {
+    const ch = inner[i];
+    if (ch === '"') inQuotes = !inQuotes;
+    if (!inQuotes) {
+      if (ch === '(') parenDepth++;
+      if (ch === ')') parenDepth--;
+      if (ch === ',' && parenDepth === 0) {
+        args.push(cur.trim());
+        cur = '';
+        continue;
+      }
+    }
+    cur += ch;
+  }
+  if (cur.trim()) args.push(cur.trim());
+
+  const blocks = [];
+  blocks.push({
+    text: '=' + fnName + '(',
+    label: '=' + fnName + '(',
+    badge: 'Fungsi ' + fnName,
+    desc: 'Awalan formula ' + fnName
+  });
+
+  args.forEach((arg, idx) => {
+    let badge = 'Argumen ' + (idx + 1);
+    let desc = arg;
+    if (fnName === 'SUMIF') {
+      if (idx === 0) { badge = 'Rentang Kriteria'; desc = 'Kolom data yang diuji (' + arg + ')'; }
+      else if (idx === 1) { badge = 'Nilai Kriteria'; desc = 'Syarat yang dicari (' + arg + ')'; }
+      else if (idx === 2) { badge = 'Rentang Jumlah'; desc = 'Kolom angka yang dijumlahkan (' + arg + ')'; }
+    } else if (fnName === 'COUNTIF') {
+      if (idx === 0) { badge = 'Rentang Hitung'; desc = 'Kolom data yang dihitung (' + arg + ')'; }
+      else if (idx === 1) { badge = 'Nilai Kriteria'; desc = 'Syarat kata/angka yang dicari (' + arg + ')'; }
+    } else if (fnName === 'IF') {
+      if (idx === 0) { badge = 'Kondisi Logika'; desc = 'Uji syarat logika (' + arg + ')'; }
+      else if (idx === 1) { badge = 'Jika Benar'; desc = 'Hasil jika syarat terpenuhi (' + arg + ')'; }
+      else if (idx === 2) { badge = 'Jika Salah'; desc = 'Hasil jika syarat tidak terpenuhi (' + arg + ')'; }
+    } else if (fnName === 'VLOOKUP') {
+      if (idx === 0) { badge = 'Kunci Lookup'; desc = 'Nilai referensi yang dicari (' + arg + ')'; }
+      else if (idx === 1) { badge = 'Tabel Rujukan'; desc = 'Tabel database (' + arg + ')'; }
+      else if (idx === 2) { badge = 'Indeks Kolom'; desc = 'Ambil nilai dari kolom ke-' + arg; }
+      else if (idx === 3) { badge = 'Pencarian Eksak'; desc = 'FALSE = pencarian mutlak'; }
+    } else if (fnName === 'AVERAGE' || fnName === 'SUM') {
+      badge = 'Rentang Angka';
+      desc = 'Rentang nilai (' + arg + ')';
+    }
+
+    blocks.push({
+      text: (idx > 0 ? ',' : '') + arg,
+      label: arg,
+      badge: badge,
+      desc: desc
+    });
+  });
+
+  blocks.push({
+    text: ')',
+    label: ')',
+    badge: 'Tutup Kurung',
+    desc: 'Menutup formula dan siap dikalkulasi'
+  });
+
+  return blocks;
+}
+
+function initFormulaBlocksForLesson(les) {
+  const fix = les.dialog?.fix || '';
+  activeFormulaBlocks = parseFormulaToBlocks(fix);
+  assembledBlockIndices = [];
+  renderFormulaBlocksUI();
+}
+
+function renderFormulaBlocksUI() {
+  const container = document.getElementById('builderAvailableBlocks');
+  const tokensEl = document.getElementById('builderTokensAssembled');
+  const stepBadge = document.getElementById('builderStepBadge');
+  const hintText = document.getElementById('builderHintText');
+  const explBar = document.getElementById('builderExplanationBar');
+  const explText = document.getElementById('builderExplanationText');
+  
+  if (!container || !tokensEl) return;
+  
+  const total = activeFormulaBlocks.length;
+  const assembledCount = assembledBlockIndices.length;
+  const isDone = (assembledCount === total && total > 0);
+  
+  if (assembledCount === 0) {
+    tokensEl.innerHTML = `<span class="builder-placeholder-text">Klik balok di bawah untuk menyusun formula...</span><span class="builder-blinking-cursor"></span>`;
+  } else {
+    let tokensHtml = '';
+    assembledBlockIndices.forEach(idx => {
+      const b = activeFormulaBlocks[idx];
+      tokensHtml += `<span class="assembled-token-chip">${esc(b.label)}</span>`;
+    });
+    if (!isDone) {
+      tokensHtml += `<span class="builder-blinking-cursor"></span>`;
+    }
+    tokensEl.innerHTML = tokensHtml;
+  }
+  
+  if (isDone) {
+    if (stepBadge) {
+      stepBadge.className = 'builder-status-badge complete';
+      stepBadge.innerHTML = `<svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Rumus Lengkap!`;
+    }
+    if (hintText) hintText.textContent = 'Formula siap dikalkulasi. Klik tombol "Cek Jawaban" untuk mengecek!';
+    if (explBar && explText) {
+      explBar.style.display = 'flex';
+      explText.textContent = 'Formula utuh berhasil disusun. Hasil perhitungan siap diverifikasi!';
+    }
+  } else {
+    const nextBlock = activeFormulaBlocks[assembledCount];
+    if (stepBadge) {
+      stepBadge.className = 'builder-status-badge';
+      stepBadge.innerHTML = `Langkah ${assembledCount + 1} dari ${total}: ${nextBlock ? esc(nextBlock.badge) : 'Pilih Balok'}`;
+    }
+    if (hintText) {
+      hintText.textContent = nextBlock ? `Klik balok [${nextBlock.label}] untuk melanjutkan.` : 'Pilih balok berikutnya.';
+    }
+    if (explBar && explText) {
+      if (assembledCount > 0) {
+        const lastBlock = activeFormulaBlocks[assembledBlockIndices[assembledCount - 1]];
+        explBar.style.display = 'flex';
+        explText.textContent = lastBlock.desc || '';
+      } else {
+        explBar.style.display = 'none';
+      }
+    }
+  }
+  
+  let blocksHtml = '';
+  activeFormulaBlocks.forEach((b, idx) => {
+    let btnCls = 'builder-block-btn';
+    let isCompleted = idx < assembledCount;
+    let isActiveTarget = idx === assembledCount;
+    
+    if (isCompleted) btnCls += ' completed';
+    if (isActiveTarget) btnCls += ' active-target';
+    
+    const clickAttr = isCompleted ? '' : `onclick="onBlockClick(${idx})"`;
+    const checkIcon = isCompleted ? `<svg class="icon icon-xs" style="color:#248a3d;margin-left:auto" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>` : '';
+    
+    blocksHtml += `
+      <button type="button" class="${btnCls}" ${clickAttr} title="${esc(b.desc)}">
+        <div style="display:flex;align-items:center;width:100%">
+          <span class="block-badge-tag">${esc(b.badge)}</span>
+          ${checkIcon}
+        </div>
+        <span class="block-token-text">${esc(b.label)}</span>
+        <span class="block-desc-text">${esc(b.desc)}</span>
+      </button>
+    `;
+  });
+  container.innerHTML = blocksHtml;
+}
+
+function onBlockClick(idx) {
+  const expectedNextIdx = assembledBlockIndices.length;
+  if (idx !== expectedNextIdx) {
+    playSound('blip');
+    const expected = activeFormulaBlocks[expectedNextIdx];
+    showToast(`Pilih balok "${expected.label}" terlebih dahulu.`);
+    return;
+  }
+  
+  playSound('click');
+  assembledBlockIndices.push(idx);
+  
+  const curFormula = assembledBlockIndices.map(i => activeFormulaBlocks[i].text).join('');
+  
+  state.formula = curFormula;
+  const fx = document.getElementById('fx');
+  if (fx) fx.value = curFormula;
+  
+  const les = currentLesson();
+  if (les && les.target) {
+    if (!cells[les.target]) cells[les.target] = {};
+    cells[les.target].f = curFormula;
+  }
+  
+  renderFormulaBlocksUI();
+  renderGrid(les);
+  
+  if (assembledBlockIndices.length === activeFormulaBlocks.length) {
+    playSound('correct');
+    const btnJawab = document.getElementById('btnJawab');
+    if (btnJawab) {
+      btnJawab.classList.add('btn-cta-pulse');
+    }
+  }
+}
+
+function undoFormulaBlock() {
+  if (assembledBlockIndices.length === 0) return;
+  playSound('click');
+  assembledBlockIndices.pop();
+  
+  const curFormula = assembledBlockIndices.map(i => activeFormulaBlocks[i].text).join('');
+  state.formula = curFormula;
+  const fx = document.getElementById('fx');
+  if (fx) fx.value = curFormula;
+  
+  const les = currentLesson();
+  if (les && les.target) {
+    if (!cells[les.target]) cells[les.target] = {};
+    cells[les.target].f = curFormula;
+  }
+  
+  renderFormulaBlocksUI();
+  renderGrid(les);
+}
+
+function resetFormulaBlocks() {
+  playSound('click');
+  assembledBlockIndices = [];
+  state.formula = '';
+  const fx = document.getElementById('fx');
+  if (fx) fx.value = '';
+  
+  const les = currentLesson();
+  if (les && les.target) {
+    if (cells[les.target]) cells[les.target].f = '';
+  }
+  
+  renderFormulaBlocksUI();
+  renderGrid(les);
+}
+
+function getLessonCols(les) {
+  if (!les) return ['A', 'B', 'C', 'D'];
+  const colSet = new Set();
+  (les.data || []).forEach(row => {
+    Object.keys(row || {}).forEach(k => {
+      if (k.length === 1 && k >= 'A' && k <= 'Z') colSet.add(k);
+    });
+  });
+  if (les.target) {
+    const targetCol = les.target.replace(/[0-9]/g, '');
+    if (targetCol) colSet.add(targetCol);
+  }
+  Object.keys(les.locked || {}).forEach(k => {
+    const c = k.replace(/[0-9]/g, '');
+    if (c) colSet.add(c);
+  });
+  
+  const sorted = Array.from(colSet).sort();
+  const maxCol = sorted.length > 0 ? sorted[sorted.length - 1] : 'B';
+  const maxCharCode = Math.max(maxCol.charCodeAt(0), 'B'.charCodeAt(0));
+  
+  const cols = [];
+  for (let code = 'A'.charCodeAt(0); code <= maxCharCode; code++) {
+    cols.push(String.fromCharCode(code));
+  }
+  return cols;
+}
+
+function getLessonMaxRow(les) {
+  if (!les) return 10;
+  let maxR = (les.data || []).length;
+  if (les.target) {
+    const targetR = parseInt(les.target.replace(/[^0-9]/g, ''), 10);
+    if (!isNaN(targetR) && targetR > maxR) maxR = targetR;
+  }
+  Object.keys(les.locked || {}).forEach(k => {
+    const r = parseInt(k.replace(/[^0-9]/g, ''), 10);
+    if (!isNaN(r) && r > maxR) maxR = r;
+  });
+  return Math.min(10, Math.max(4, maxR + (maxR < 10 ? 1 : 0)));
+}
+
+function getHighlightedRanges(formulaStr) {
+  if (!formulaStr || typeof formulaStr !== 'string') return [];
+  const regex = /([A-Z][0-9]+)(?::([A-Z][0-9]+))?/gi;
+  const matches = [];
+  let m;
+  const colors = ['range-hl-blue', 'range-hl-amber', 'range-hl-purple', 'range-hl-emerald'];
+  let colorIdx = 0;
+  while ((m = regex.exec(formulaStr)) !== null) {
+    const start = m[1].toUpperCase();
+    const end = m[2] ? m[2].toUpperCase() : start;
+    matches.push({
+      startCol: start[0],
+      startRow: parseInt(start.slice(1), 10),
+      endCol: end[0],
+      endRow: parseInt(end.slice(1), 10),
+      cls: colors[colorIdx % colors.length]
+    });
+    colorIdx++;
+  }
+  return matches;
+}
+
+function getCellHighlightClass(c, r, ranges) {
+  if (!ranges || ranges.length === 0) return '';
+  for (const rng of ranges) {
+    if (c >= rng.startCol && c <= rng.endCol && r >= rng.startRow && r <= rng.endRow) {
+      return rng.cls;
+    }
+  }
+  return '';
+}
+
+function toggleMisiMoreMenu(e) {
+  if (e) e.stopPropagation();
+  playSound('click');
+  const menu = document.getElementById('misiMoreDropdown');
+  if (menu) {
+    const isShowing = menu.style.display !== 'none';
+    menu.style.display = isShowing ? 'none' : 'block';
+  }
+}
+
+function tutupMisiMoreMenu() {
+  const menu = document.getElementById('misiMoreDropdown');
+  if (menu) menu.style.display = 'none';
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.apple-dropdown-wrap')) {
+    tutupMisiMoreMenu();
+  }
+});
+
+// Render Spreadsheet Grid with Dynamic Columns, Rows, and Live Range Highlighting
 function renderGrid(les) {
   const tbl = document.getElementById('grid');
-  if (!tbl) return;
+  if (!tbl || !les) return;
   const dataRows = buildDataRows(les);
+
+  const activeCols = getLessonCols(les);
+  const maxRows = getLessonMaxRow(les);
+
+  const curFormula = (cells[les.target]?.f || state.formula || '').trim();
+  const highlightedRanges = getHighlightedRanges(curFormula);
 
   const selCol = (state.selectedCell || 'A1')[0];
   const selRow = parseInt((state.selectedCell || 'A1').slice(1), 10);
 
+  // Proportional default widths to fill table width cleanly without scrollbars on 2-3 cols
+  const defaultColW = (activeCols.length === 2) ? 240 : (activeCols.length === 3 ? 170 : (activeCols.length === 4 ? 135 : 115));
+
   let html = '<tr><td class="empty-head"></td>';
-  DISPLAY_COLS.forEach(c => {
-    const w = colWidths[c] || 120;
+  activeCols.forEach(c => {
+    const w = colWidths[c] || defaultColW;
     const isColActive = (c === selCol);
     html += `
       <th class="${isColActive ? 'active-col-header' : ''}" style="width:${w}px; min-width:${w}px; max-width:${w}px; position: relative;">
@@ -7334,15 +8194,15 @@ function renderGrid(les) {
   });
   html += '</tr>';
 
-  for (let r = 1; r <= 10; r++) {
+  for (let r = 1; r <= maxRows; r++) {
     const isRowActive = (r === selRow);
     html += `<tr><td class="col-index ${isRowActive ? 'active-row-header' : ''}">${r}</td>`;
-    DISPLAY_COLS.forEach(c => {
+    activeCols.forEach(c => {
       const key = c + r;
       const isLocked = !!(les.locked && les.locked[key]);
       const isTarget = key === les.target;
       const isSelected = key === state.selectedCell;
-      const w = colWidths[c] || 120;
+      const w = colWidths[c] || defaultColW;
 
       let rawVal = les.data[r - 1] && les.data[r - 1][c] !== undefined ? les.data[r - 1][c] : '';
       if (cells[key]?.v !== undefined) rawVal = cells[key].v;
@@ -7352,6 +8212,10 @@ function renderGrid(les) {
       if (isLocked) cls += ' locked';
       if (isSelected) cls += ' selected';
       if (isTarget) cls += ' target-cell';
+
+      // Live Excel Range Highlight
+      const hlCls = getCellHighlightClass(c, r, highlightedRanges);
+      if (hlCls && !isTarget) cls += ' ' + hlCls;
 
       if (cells[key]?.f) {
         const ev = evaluate(cells[key].f, dataRows);
@@ -7366,7 +8230,7 @@ function renderGrid(les) {
 
       let extra = '';
       if (isTarget && !isSelected && !disp) {
-        extra = `<span class="target-indicator"><svg class="icon icon-sm" style="width:10px;height:10px" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>Target</span>`;
+        extra = `<span class="target-indicator"><svg class="icon icon-sm" style="width:10px;height:10px" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>Target ${key}</span>`;
       }
       if (isSelected && !isLocked) {
         extra += `<div class="excel-fill-handle"></div>`;
@@ -7404,7 +8268,7 @@ function initColResize(e, colKey) {
     const newWidth = Math.max(50, Math.min(320, startWidth + diff));
     colWidths[colKey] = newWidth;
 
-    const colIndex = DISPLAY_COLS.indexOf(colKey) + 2;
+    const colIndex = getLessonCols(currentLesson()).indexOf(colKey) + 2;
     const matchedCells = document.querySelectorAll(`#grid tr th:nth-child(${colIndex}), #grid tr td:nth-child(${colIndex})`);
     matchedCells.forEach(el => {
       el.style.width = newWidth + 'px';
@@ -7807,16 +8671,10 @@ function onCellDirectKeyDown(e) {
   }
 }
 
-function pilihCell(key) {
-  // If clicking on already active cell with mounted editor, just focus!
-  if (state.selectedCell === key && document.getElementById('activeCellEditor')) {
-    const ed = document.getElementById('activeCellEditor');
-    ed.focus();
-    return;
-  }
-
+function pilihCell(key, shouldFocus = true) {
   state.selectedCell = key;
-  document.getElementById('cellNameBox').textContent = key;
+  const nameBox = document.getElementById('cellNameBox');
+  if (nameBox) nameBox.textContent = key;
   const fx = document.getElementById('fx');
   const existing = cells[key]?.f || cells[key]?.v || '';
   if (fx) fx.value = existing;
@@ -7827,18 +8685,15 @@ function pilihCell(key) {
   hideInCellSyntax();
   updateDragHintBanner();
 
-  const activeTd = document.querySelector(`#grid td[data-cell="${key}"]`);
-  if (activeTd) {
-    activeTd.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-  }
-
-  const activeEditor = document.getElementById('activeCellEditor');
-  if (activeEditor) {
-    activeEditor.focus();
-    const len = activeEditor.value.length;
-    activeEditor.setSelectionRange(len, len);
-    if (existing.startsWith('=')) {
-      handleInCellFormulaPopup(existing);
+  if (shouldFocus) {
+    const activeEditor = document.getElementById('activeCellEditor');
+    if (activeEditor) {
+      activeEditor.focus({ preventScroll: true });
+      const len = activeEditor.value.length;
+      activeEditor.setSelectionRange(len, len);
+      if (existing.startsWith('=')) {
+        handleInCellFormulaPopup(existing);
+      }
     }
   }
 }
@@ -8005,6 +8860,10 @@ function muatMisi() {
 
   renderGrid(les);
 
+  // Initialize Formula Smart Blocks for Beginner Mode
+  initFormulaBlocksForLesson(les);
+  updateModeBelajarUI();
+
   // Initialize Interactive Story Briefing & Dialogue Modal
   bukaBriefingAwal();
 
@@ -8108,11 +8967,12 @@ function selesaiBriefingDanMulaiTugas() {
 
   const les = currentLesson();
   if (les) {
-    pilihCell(les.target);
+    pilihCell(les.target, true);
+    window.scrollTo({ top: 0, behavior: 'instant' });
     const fxInput = document.getElementById('fx');
-    if (fxInput) {
+    if (fxInput && activeLearningMode === 'ketik') {
       setTimeout(() => {
-        fxInput.focus();
+        fxInput.focus({ preventScroll: true });
       }, 100);
     }
 
