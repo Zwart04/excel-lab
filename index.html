@@ -2799,9 +2799,6 @@
       font-size: 11px !important;
     }
     .mobile-formula-strip {
-      display: none !important;
-    }
-    body[data-mode="ketik"] .mobile-formula-strip {
       display: flex !important;
       padding: 3px 0 !important;
       gap: 4px !important;
@@ -4712,18 +4709,6 @@
       </div>
 
       <div class="misi-task-pills">
-        <!-- Learning Mode Toggle (Beginner Block Builder vs Pro Keyboard) -->
-        <div class="apple-segmented-toggle">
-          <button type="button" class="segment-btn active" id="btnModeBalok" onclick="setModeBelajar('balok')" title="Mode Pemula: Susun rumus dengan mengklik balok interaktif">
-            <svg class="icon icon-xs" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>
-            <span>Mode Pemula</span>
-          </button>
-          <button type="button" class="segment-btn" id="btnModeKetik" onclick="setModeBelajar('ketik')" title="Ketik rumus manual langsung di formula bar">
-            <svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
-            <span>Ketik Pro</span>
-          </button>
-        </div>
-
         <div class="meta-tag-pill target-pill" title="Sel Target Pengerjaan">
           <span class="lbl">Target:</span>
           <span class="val" id="taskTargetBadge">B10</span>
@@ -4797,44 +4782,7 @@
       </div>
 
       <!-- Formula Bar with Authentic Excel Actions -->
-            <!-- Duolingo-Style Formula Smart Block Builder (For Beginners) -->
-      <div class="formula-block-builder-card" id="formulaBlockBuilderCard">
-        <div class="builder-card-header">
-          <div class="builder-step-meta">
-            <span class="builder-status-badge" id="builderStepBadge">Langkah 1: Klik Balok Fungsi</span>
-            <span class="builder-hint-text" id="builderHintText">Susun rumus dengan mengklik balok di bawah secara berurutan.</span>
-          </div>
-          <div class="builder-header-actions">
-            <button type="button" class="btn-builder-action" onclick="undoFormulaBlock()" title="Batalkan balok terakhir">
-              <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/></svg>
-              <span>Hapus Balok</span>
-            </button>
-            <button type="button" class="btn-builder-action" onclick="resetFormulaBlocks()" title="Ulangi dari awal">
-              <svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-              <span>Reset</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Real-time Assembled Formula Preview Strip -->
-        <div class="builder-preview-strip">
-          <div class="builder-fx-icon">fx</div>
-          <div class="builder-tokens-container" id="builderTokensAssembled">
-            <span class="builder-placeholder-text">Klik balok di bawah untuk menyusun formula...</span>
-          </div>
-        </div>
-
-        <!-- Available Clickable Smart Blocks Container -->
-        <div class="builder-blocks-grid" id="builderAvailableBlocks"></div>
-
-        <!-- Educational Meaning Pill -->
-        <div class="builder-explanation-bar" id="builderExplanationBar" style="display: none;">
-          <svg class="icon icon-xs" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-          <span id="builderExplanationText"></span>
-        </div>
-      </div>
-
-      <div class="formula-bar-wrap">
+            <div class="formula-bar-wrap">
         <div class="formula-bar">
           <div class="cell-badge" id="cellNameBox">A1</div>
           <div class="fx-actions">
@@ -7798,276 +7746,8 @@ function highlightRangeCells(startKey, endKey) {
 // Render Spreadsheet Grid with Column Drag Resizing & Active Excel In-Cell Editor
 
 // ==========================================
-// FORMULA SMART BLOCK BUILDER & LIVE HIGHLIGHT ENGINE
+// DYNAMIC COLUMNS, ROWS & LIVE RANGE HIGHLIGHT ENGINE
 // ==========================================
-let activeFormulaBlocks = [];
-let assembledBlockIndices = [];
-let activeLearningMode = localStorage.getItem('excel_lab_learning_mode') || 'balok';
-
-function setModeBelajar(mode) {
-  playSound('click');
-  activeLearningMode = mode;
-  localStorage.setItem('excel_lab_learning_mode', mode);
-  updateModeBelajarUI();
-}
-
-function updateModeBelajarUI() {
-  const btnBalok = document.getElementById('btnModeBalok');
-  const btnKetik = document.getElementById('btnModeKetik');
-  const builderCard = document.getElementById('formulaBlockBuilderCard');
-  document.body.setAttribute('data-mode', activeLearningMode);
-  
-  if (activeLearningMode === 'balok') {
-    if (btnBalok) btnBalok.classList.add('active');
-    if (btnKetik) btnKetik.classList.remove('active');
-    if (builderCard) builderCard.style.display = 'block';
-  } else {
-    if (btnBalok) btnBalok.classList.remove('active');
-    if (btnKetik) btnKetik.classList.add('active');
-    if (builderCard) builderCard.style.display = 'none';
-  }
-}
-
-function parseFormulaToBlocks(fix) {
-  if (!fix) return [];
-  const fnMatch = fix.match(/^=([A-Z]+)\(/);
-  if (!fnMatch) return [{ text: fix, label: fix, badge: 'Rumus', desc: fix }];
-  const fnName = fnMatch[1];
-  const inner = fix.slice(fnMatch[0].length, -1);
-  
-  const args = [];
-  let cur = '';
-  let inQuotes = false;
-  let parenDepth = 0;
-  for (let i = 0; i < inner.length; i++) {
-    const ch = inner[i];
-    if (ch === '"') inQuotes = !inQuotes;
-    if (!inQuotes) {
-      if (ch === '(') parenDepth++;
-      if (ch === ')') parenDepth--;
-      if (ch === ',' && parenDepth === 0) {
-        args.push(cur.trim());
-        cur = '';
-        continue;
-      }
-    }
-    cur += ch;
-  }
-  if (cur.trim()) args.push(cur.trim());
-
-  const blocks = [];
-  blocks.push({
-    text: '=' + fnName + '(',
-    label: '=' + fnName + '(',
-    badge: 'Fungsi ' + fnName,
-    desc: 'Awalan formula ' + fnName
-  });
-
-  args.forEach((arg, idx) => {
-    let badge = 'Argumen ' + (idx + 1);
-    let desc = arg;
-    if (fnName === 'SUMIF') {
-      if (idx === 0) { badge = 'Rentang Kriteria'; desc = 'Kolom data yang diuji (' + arg + ')'; }
-      else if (idx === 1) { badge = 'Nilai Kriteria'; desc = 'Syarat yang dicari (' + arg + ')'; }
-      else if (idx === 2) { badge = 'Rentang Jumlah'; desc = 'Kolom angka yang dijumlahkan (' + arg + ')'; }
-    } else if (fnName === 'COUNTIF') {
-      if (idx === 0) { badge = 'Rentang Hitung'; desc = 'Kolom data yang dihitung (' + arg + ')'; }
-      else if (idx === 1) { badge = 'Nilai Kriteria'; desc = 'Syarat kata/angka yang dicari (' + arg + ')'; }
-    } else if (fnName === 'IF') {
-      if (idx === 0) { badge = 'Kondisi Logika'; desc = 'Uji syarat logika (' + arg + ')'; }
-      else if (idx === 1) { badge = 'Jika Benar'; desc = 'Hasil jika syarat terpenuhi (' + arg + ')'; }
-      else if (idx === 2) { badge = 'Jika Salah'; desc = 'Hasil jika syarat tidak terpenuhi (' + arg + ')'; }
-    } else if (fnName === 'VLOOKUP') {
-      if (idx === 0) { badge = 'Kunci Lookup'; desc = 'Nilai referensi yang dicari (' + arg + ')'; }
-      else if (idx === 1) { badge = 'Tabel Rujukan'; desc = 'Tabel database (' + arg + ')'; }
-      else if (idx === 2) { badge = 'Indeks Kolom'; desc = 'Ambil nilai dari kolom ke-' + arg; }
-      else if (idx === 3) { badge = 'Pencarian Eksak'; desc = 'FALSE = pencarian mutlak'; }
-    } else if (fnName === 'AVERAGE' || fnName === 'SUM') {
-      badge = 'Rentang Angka';
-      desc = 'Rentang nilai (' + arg + ')';
-    }
-
-    blocks.push({
-      text: (idx > 0 ? ',' : '') + arg,
-      label: arg,
-      badge: badge,
-      desc: desc
-    });
-  });
-
-  blocks.push({
-    text: ')',
-    label: ')',
-    badge: 'Tutup Kurung',
-    desc: 'Menutup formula dan siap dikalkulasi'
-  });
-
-  return blocks;
-}
-
-function initFormulaBlocksForLesson(les) {
-  const fix = les.dialog?.fix || '';
-  activeFormulaBlocks = parseFormulaToBlocks(fix);
-  assembledBlockIndices = [];
-  renderFormulaBlocksUI();
-}
-
-function renderFormulaBlocksUI() {
-  const container = document.getElementById('builderAvailableBlocks');
-  const tokensEl = document.getElementById('builderTokensAssembled');
-  const stepBadge = document.getElementById('builderStepBadge');
-  const hintText = document.getElementById('builderHintText');
-  const explBar = document.getElementById('builderExplanationBar');
-  const explText = document.getElementById('builderExplanationText');
-  
-  if (!container || !tokensEl) return;
-  
-  const total = activeFormulaBlocks.length;
-  const assembledCount = assembledBlockIndices.length;
-  const isDone = (assembledCount === total && total > 0);
-  
-  if (assembledCount === 0) {
-    tokensEl.innerHTML = `<span class="builder-placeholder-text">Klik balok di bawah untuk menyusun formula...</span><span class="builder-blinking-cursor"></span>`;
-  } else {
-    let tokensHtml = '';
-    assembledBlockIndices.forEach(idx => {
-      const b = activeFormulaBlocks[idx];
-      tokensHtml += `<span class="assembled-token-chip">${esc(b.label)}</span>`;
-    });
-    if (!isDone) {
-      tokensHtml += `<span class="builder-blinking-cursor"></span>`;
-    }
-    tokensEl.innerHTML = tokensHtml;
-  }
-  
-  if (isDone) {
-    if (stepBadge) {
-      stepBadge.className = 'builder-status-badge complete';
-      stepBadge.innerHTML = `<svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Rumus Lengkap!`;
-    }
-    if (hintText) hintText.textContent = 'Formula siap dikalkulasi. Klik tombol "Cek Jawaban" untuk mengecek!';
-    if (explBar && explText) {
-      explBar.style.display = 'flex';
-      explText.textContent = 'Formula utuh berhasil disusun. Hasil perhitungan siap diverifikasi!';
-    }
-  } else {
-    const nextBlock = activeFormulaBlocks[assembledCount];
-    if (stepBadge) {
-      stepBadge.className = 'builder-status-badge';
-      stepBadge.innerHTML = `Langkah ${assembledCount + 1} dari ${total}: ${nextBlock ? esc(nextBlock.badge) : 'Pilih Balok'}`;
-    }
-    if (hintText) {
-      hintText.textContent = nextBlock ? `Klik balok [${nextBlock.label}] untuk melanjutkan.` : 'Pilih balok berikutnya.';
-    }
-    if (explBar && explText) {
-      if (assembledCount > 0) {
-        const lastBlock = activeFormulaBlocks[assembledBlockIndices[assembledCount - 1]];
-        explBar.style.display = 'flex';
-        explText.textContent = lastBlock.desc || '';
-      } else {
-        explBar.style.display = 'none';
-      }
-    }
-  }
-  
-  let blocksHtml = '';
-  activeFormulaBlocks.forEach((b, idx) => {
-    let btnCls = 'builder-block-btn';
-    let isCompleted = idx < assembledCount;
-    let isActiveTarget = idx === assembledCount;
-    
-    if (isCompleted) btnCls += ' completed';
-    if (isActiveTarget) btnCls += ' active-target';
-    
-    const clickAttr = isCompleted ? '' : `onclick="onBlockClick(${idx})"`;
-    const checkIcon = isCompleted ? `<svg class="icon icon-xs" style="color:#248a3d;margin-left:auto" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>` : '';
-    
-    blocksHtml += `
-      <button type="button" class="${btnCls}" ${clickAttr} title="${esc(b.desc)}">
-        <div style="display:flex;align-items:center;width:100%">
-          <span class="block-badge-tag">${esc(b.badge)}</span>
-          ${checkIcon}
-        </div>
-        <span class="block-token-text">${esc(b.label)}</span>
-        <span class="block-desc-text">${esc(b.desc)}</span>
-      </button>
-    `;
-  });
-  container.innerHTML = blocksHtml;
-}
-
-function onBlockClick(idx) {
-  const expectedNextIdx = assembledBlockIndices.length;
-  if (idx !== expectedNextIdx) {
-    playSound('blip');
-    const expected = activeFormulaBlocks[expectedNextIdx];
-    showToast(`Pilih balok "${expected.label}" terlebih dahulu.`);
-    return;
-  }
-  
-  playSound('click');
-  assembledBlockIndices.push(idx);
-  
-  const curFormula = assembledBlockIndices.map(i => activeFormulaBlocks[i].text).join('');
-  
-  state.formula = curFormula;
-  const fx = document.getElementById('fx');
-  if (fx) fx.value = curFormula;
-  
-  const les = currentLesson();
-  if (les && les.target) {
-    if (!cells[les.target]) cells[les.target] = {};
-    cells[les.target].f = curFormula;
-  }
-  
-  renderFormulaBlocksUI();
-  renderGrid(les);
-  
-  if (assembledBlockIndices.length === activeFormulaBlocks.length) {
-    playSound('correct');
-    const btnJawab = document.getElementById('btnJawab');
-    if (btnJawab) {
-      btnJawab.classList.add('btn-cta-pulse');
-    }
-  }
-}
-
-function undoFormulaBlock() {
-  if (assembledBlockIndices.length === 0) return;
-  playSound('click');
-  assembledBlockIndices.pop();
-  
-  const curFormula = assembledBlockIndices.map(i => activeFormulaBlocks[i].text).join('');
-  state.formula = curFormula;
-  const fx = document.getElementById('fx');
-  if (fx) fx.value = curFormula;
-  
-  const les = currentLesson();
-  if (les && les.target) {
-    if (!cells[les.target]) cells[les.target] = {};
-    cells[les.target].f = curFormula;
-  }
-  
-  renderFormulaBlocksUI();
-  renderGrid(les);
-}
-
-function resetFormulaBlocks() {
-  playSound('click');
-  assembledBlockIndices = [];
-  state.formula = '';
-  const fx = document.getElementById('fx');
-  if (fx) fx.value = '';
-  
-  const les = currentLesson();
-  if (les && les.target) {
-    if (cells[les.target]) cells[les.target].f = '';
-  }
-  
-  renderFormulaBlocksUI();
-  renderGrid(les);
-}
-
 function getLessonCols(les) {
   if (!les) return ['A', 'B', 'C', 'D'];
   const colSet = new Set();
@@ -8861,9 +8541,6 @@ function muatMisi() {
   renderGrid(les);
 
   // Initialize Formula Smart Blocks for Beginner Mode
-  initFormulaBlocksForLesson(les);
-  updateModeBelajarUI();
-
   // Initialize Interactive Story Briefing & Dialogue Modal
   bukaBriefingAwal();
 
