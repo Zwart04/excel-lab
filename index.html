@@ -1886,6 +1886,258 @@
     letter-spacing: 0.02em;
   }
 
+  /* ========================================================
+     INTERACTIVE DIALOGUE BRIEFING MODAL (WORKPLACE BRIEFING)
+     ======================================================== */
+  .briefing-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 1200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    opacity: 0;
+    transition: opacity 0.22s var(--ease-apple);
+  }
+  .briefing-modal-overlay.active {
+    display: flex;
+    opacity: 1;
+  }
+  .briefing-dialog {
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 26px;
+    box-shadow: 0 28px 72px rgba(15, 23, 42, 0.32), 0 4px 16px rgba(0, 0, 0, 0.08);
+    max-width: 520px;
+    width: 100%;
+    padding: 24px 26px;
+    position: relative;
+    overflow: hidden;
+    animation: briefingPop 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes briefingPop {
+    from { opacity: 0; transform: scale(0.92) translateY(12px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .briefing-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .briefing-meta-tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .briefing-dept-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    background: rgba(0, 113, 227, 0.09);
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .briefing-mission-pill {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--label-secondary);
+    background: #f2f2f7;
+    padding: 4px 9px;
+    border-radius: 999px;
+  }
+  .btn-briefing-skip {
+    background: transparent;
+    border: none;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--label-tertiary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+  .btn-briefing-skip:hover {
+    color: var(--label-primary);
+    background: rgba(0, 0, 0, 0.05);
+  }
+  .briefing-manager-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 12px 16px;
+  }
+  .briefing-avatar-squircle {
+    width: 84px;
+    height: 84px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #edf2f7 100%);
+    border: 2px solid #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #briefingCanvasContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .briefing-manager-details {
+    flex: 1;
+    min-width: 0;
+  }
+  .briefing-name-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .briefing-mascot-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+  .briefing-mascot-role {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 2px;
+  }
+  .briefing-location-row {
+    font-size: 11.5px;
+    color: var(--label-tertiary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+  }
+  .briefing-bubble {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 18px;
+    padding: 16px 18px;
+    position: relative;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .briefing-bubble:hover {
+    border-color: var(--accent);
+  }
+  .briefing-bubble-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .briefing-speaker-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .briefing-step-pill {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(0, 113, 227, 0.09);
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+  .briefing-speech-content {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #1e293b;
+    font-weight: 500;
+    min-height: 56px;
+    word-break: break-word;
+  }
+  .briefing-bubble-hint {
+    font-size: 11px;
+    color: var(--label-tertiary);
+    font-style: italic;
+    margin-top: 8px;
+    text-align: right;
+  }
+  .briefing-actions {
+    display: flex;
+    gap: 10px;
+  }
+  .btn-briefing-cta {
+    width: 100%;
+    height: 48px;
+    font-size: 14.5px;
+    font-weight: 700;
+    border-radius: 14px;
+    background: var(--accent);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(0, 113, 227, 0.32);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-briefing-cta:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+  }
+  .btn-briefing-cta:active {
+    transform: scale(0.985);
+  }
+  .btn-briefing-cta.btn-briefing-start {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+  }
+  [data-theme="dark"] .briefing-dialog {
+    background: #1e293b;
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #f1f5f9;
+  }
+  [data-theme="dark"] .briefing-manager-card {
+    background: #0f172a;
+    border-color: #334155;
+  }
+  [data-theme="dark"] .briefing-mascot-name {
+    color: #f8fafc;
+  }
+  [data-theme="dark"] .briefing-bubble {
+    background: #0f172a;
+    border-color: #334155;
+  }
+  [data-theme="dark"] .briefing-speech-content {
+    color: #e2e8f0;
+  }
+  [data-theme="dark"] .briefing-avatar-squircle {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-color: #334155;
+  }
+
   /* Sticky Headers on Excel Grid */
   table.sheet thead th {
     position: sticky;
@@ -2005,15 +2257,31 @@
       gap: 8px !important;
     }
     .panel-aside {
-      width: 100% !important;
-      order: 1;
+      display: none !important;
     }
     .panel-spreadsheet {
       width: 100% !important;
-      order: 2;
       padding: 8px 10px !important;
       border-radius: 14px !important;
       margin-bottom: 74px !important; /* Space for bottom floating bar */
+    }
+    .briefing-dialog {
+      padding: 18px 16px !important;
+      border-radius: 22px !important;
+      width: 95% !important;
+    }
+    .briefing-avatar-squircle {
+      width: 72px !important;
+      height: 72px !important;
+      border-radius: 16px !important;
+    }
+    .briefing-speech-content {
+      font-size: 14px !important;
+      min-height: 52px !important;
+    }
+    .btn-briefing-cta {
+      height: 44px !important;
+      font-size: 14px !important;
     }
     .drag-hint-banner {
       display: none !important;
@@ -3212,6 +3480,73 @@
   </div>
 </div>
 
+<!-- Interactive Workplace Dialogue Briefing Modal (Initial Dialogue Before Worksheet) -->
+<div class="briefing-modal-overlay" id="briefingOverlay" onclick="if(event.target===this)selesaiBriefingDanMulaiTugas()">
+  <div class="briefing-dialog">
+    <!-- Top Meta Row: Division Tag, Mission Stepper, & Subtle Skip Button -->
+    <div class="briefing-top-bar">
+      <div class="briefing-meta-tags">
+        <span class="briefing-dept-tag" id="briefingDivisiTag">Sales &amp; Marketing • Lantai 18</span>
+        <span class="briefing-mission-pill" id="briefingMissionCount">Misi 1 dari 8</span>
+      </div>
+      <button type="button" class="btn-briefing-skip" onclick="selesaiBriefingDanMulaiTugas()" title="Lewati percakapan dan langsung buka lembar kerja">
+        <span>Lewati</span>
+        <svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <!-- Manager Identity & 3D Squircle Avatar Header -->
+    <div class="briefing-manager-card">
+      <div class="briefing-avatar-squircle">
+        <div id="briefingCanvasContainer"></div>
+      </div>
+      <div class="briefing-manager-details">
+        <div class="briefing-name-row">
+          <h3 class="briefing-mascot-name" id="briefingMascotName">Bu Rina</h3>
+          <span class="pill-tag pill-accent pill-status-pulse" id="briefingStatusTag">Sedang Berbicara</span>
+        </div>
+        <div class="briefing-mascot-role" id="briefingMascotRole">VP of Sales &amp; Marketing</div>
+        <div class="briefing-location-row">
+          <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span id="briefingFloorText">High-Rise Sales Suite</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apple / Comic Style Speech Bubble with Typewriter Narrative -->
+    <div class="briefing-bubble" onclick="skipTypewriter()">
+      <div class="briefing-bubble-top">
+        <div class="briefing-speaker-badge">
+          <span class="speech-avatar-dot"></span>
+          <span id="briefingBubbleSpeaker">Pesan Arahan Kerja</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div class="speech-chatter-indicator" id="briefingChatterIndicator" title="Suara Maskot Aktif">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="briefing-step-pill" id="briefingStepIndicator">Pesan 1 dari 2</span>
+        </div>
+      </div>
+
+      <div class="briefing-speech-content" id="briefingSpeechText">
+        Memuat arahan tugas...
+      </div>
+
+      <div class="briefing-bubble-hint">
+        <span>Klik teks untuk percepat</span>
+      </div>
+    </div>
+
+    <!-- Action Reply Footer -->
+    <div class="briefing-actions">
+      <button type="button" class="btn btn-primary btn-briefing-cta" id="btnBriefingAction" onclick="lanjutDialog()">
+        <span id="btnBriefingActionText">Lanjut</span>
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- Header -->
 <header>
   <div class="wrap">
@@ -3430,6 +3765,12 @@
           <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           <span class="timer-tag" id="timerLabel">Tes:</span>
           <span class="timer-countdown" id="timerDisplay">15:00</span>
+        </button>
+
+        <!-- Interactive Manager Briefing Modal Button -->
+        <button type="button" class="btn btn-outline btn-nav-apple btn-briefing-pill" onclick="bukaBriefingAwal()" title="Buka Percakapan &amp; Arahan Manager">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="nav-text">Briefing</span>
         </button>
 
         <!-- Official Certificate Modal Button -->
@@ -5359,8 +5700,14 @@ function skipTypewriter() {
   if (dt && currentFullDialogueText) {
     dt.textContent = currentFullDialogueText;
   }
+  const bst = document.getElementById('briefingSpeechText');
+  if (bst && currentFullDialogueText) {
+    bst.textContent = currentFullDialogueText;
+  }
   const ind = document.getElementById('speechChatterIndicator');
   if (ind) ind.style.visibility = 'hidden';
+  const bind = document.getElementById('briefingChatterIndicator');
+  if (bind) bind.style.visibility = 'hidden';
   setMascotEmotion(currentFinalEmotion, 3500);
 }
 
@@ -5372,11 +5719,14 @@ function speakDialogueTypewriter(fullText, divisiKey, finalEmotion = 'neutral') 
   currentFullDialogueText = fullText;
   currentFinalEmotion = finalEmotion;
   const dt = document.getElementById('dialogueText');
+  const bst = document.getElementById('briefingSpeechText');
   const ind = document.getElementById('speechChatterIndicator');
-  if (!dt) return;
+  const bind = document.getElementById('briefingChatterIndicator');
 
-  dt.textContent = '';
+  if (dt) dt.textContent = '';
+  if (bst) bst.textContent = '';
   if (ind) ind.style.visibility = 'visible';
+  if (bind) bind.style.visibility = 'visible';
   setMascotEmotion('talking');
 
   let charIdx = 0;
@@ -5384,7 +5734,8 @@ function speakDialogueTypewriter(fullText, divisiKey, finalEmotion = 'neutral') 
   typewriterTimer = setInterval(() => {
     if (charIdx < len) {
       const char = fullText[charIdx];
-      dt.textContent += char;
+      if (dt) dt.textContent += char;
+      if (bst) bst.textContent += char;
       charIdx++;
       if (charIdx % 2 === 0 && char.trim().length > 0) {
         playMascotSyllableBlip(divisiKey);
@@ -5392,7 +5743,7 @@ function speakDialogueTypewriter(fullText, divisiKey, finalEmotion = 'neutral') 
     } else {
       skipTypewriter();
     }
-  }, 22);
+  }, 20);
 }
 
 // Animal Crossing / RPG Style Procedural Voice Synthesizer
@@ -6771,9 +7122,8 @@ function muatMisi() {
 
   renderGrid(les);
 
-  // Initialize Interactive Story Briefing
-  state.dialogueIdx = 0;
-  tampilkanDialogLangkah();
+  // Initialize Interactive Story Briefing & Dialogue Modal
+  bukaBriefingAwal();
 
   const fb = document.getElementById('feedback');
   fb.className = 'feedback-box';
@@ -6812,7 +7162,86 @@ function misiBerikutnya() {
   }
 }
 
-// Story Dialogue Engine with Mascot Speech Chatter Sound
+// ==========================================
+// INTERACTIVE WORKPLACE BRIEFING ENGINE
+// ==========================================
+function bukaBriefingAwal() {
+  const les = currentLesson();
+  if (!les) return;
+
+  const overlay = document.getElementById('briefingOverlay');
+  if (!overlay) return;
+
+  const profile = MASCOT_PROFILES[state.divisi] || MASCOT_PROFILES.keuangan;
+  const ambiance = OFFICE_AMBIANCE[state.divisi] || OFFICE_AMBIANCE.sales;
+  const total = (LESSONS[state.divisi] || []).length;
+
+  const divTag = document.getElementById('briefingDivisiTag');
+  if (divTag) divTag.textContent = `${DIVISI[state.divisi]?.label || 'Divisi'} • ${ambiance.floor || 'Lantai 18'}`;
+
+  const missionCount = document.getElementById('briefingMissionCount');
+  if (missionCount) missionCount.textContent = `Misi ${state.lessonIdx + 1} dari ${total}`;
+
+  const nameEl = document.getElementById('briefingMascotName');
+  if (nameEl) nameEl.textContent = profile.name;
+
+  const roleEl = document.getElementById('briefingMascotRole');
+  if (roleEl) roleEl.textContent = profile.role;
+
+  const locEl = document.getElementById('briefingFloorText');
+  if (locEl) locEl.textContent = ambiance.desc || ambiance.floor;
+
+  const speakerTag = document.getElementById('briefingBubbleSpeaker');
+  if (speakerTag) speakerTag.textContent = `${profile.name} (${profile.role})`;
+
+  // Mount 3D mascot into briefing modal
+  const briefingContainer = document.getElementById('briefingCanvasContainer');
+  if (briefingContainer && renderer && renderer.domElement) {
+    briefingContainer.appendChild(renderer.domElement);
+    setTimeout(resize3DMascot, 30);
+  }
+
+  state.dialogueIdx = 0;
+  tampilkanDialogLangkah();
+
+  overlay.classList.add('active');
+  overlay.style.display = 'flex';
+}
+
+function selesaiBriefingDanMulaiTugas() {
+  playSound('click');
+  const overlay = document.getElementById('briefingOverlay');
+  if (overlay) {
+    overlay.classList.remove('active');
+    overlay.style.display = 'none';
+  }
+
+  // Restore 3D canvas back to desktop sidebar container
+  const mascotContainer = document.getElementById('mascotCanvasContainer');
+  if (mascotContainer && renderer && renderer.domElement) {
+    mascotContainer.appendChild(renderer.domElement);
+    setTimeout(resize3DMascot, 30);
+  }
+
+  const les = currentLesson();
+  if (les) {
+    pilihCell(les.target);
+    const fxInput = document.getElementById('fx');
+    if (fxInput) {
+      setTimeout(() => {
+        fxInput.focus();
+      }, 100);
+    }
+
+    // Set sidebar status
+    const readyText = `Silakan ketik formula pada sel target ${les.target}. Ketik = untuk melihat rekomendasi atau drag langsung sel tabel untuk memasukkan rentang.`;
+    speakDialogueTypewriter(readyText, state.divisi, 'neutral');
+    const btnNext = document.getElementById('btnDialogueNext');
+    if (btnNext) btnNext.textContent = 'Ulangi Briefing';
+    state.dialogueIdx = -1;
+  }
+}
+
 function tampilkanDialogLangkah() {
   const les = currentLesson();
   if (!les || !les.briefing) return;
@@ -6820,24 +7249,46 @@ function tampilkanDialogLangkah() {
   if (!step) return;
 
   speakDialogueTypewriter(step.text, state.divisi, 'neutral');
-  document.getElementById('btnDialogueNext').textContent = step.btn;
+
+  // Update button texts
+  const btnNext = document.getElementById('btnDialogueNext');
+  if (btnNext) btnNext.textContent = step.btn;
+
+  const btnAction = document.getElementById('btnBriefingAction');
+  const btnActionText = document.getElementById('btnBriefingActionText');
+  if (btnActionText) {
+    btnActionText.textContent = step.btn;
+  }
+  if (btnAction) {
+    const isFinalStep = (state.dialogueIdx >= les.briefing.length - 1);
+    if (isFinalStep) {
+      btnAction.classList.add('btn-briefing-start');
+    } else {
+      btnAction.classList.remove('btn-briefing-start');
+    }
+  }
+
+  const stepIndicator = document.getElementById('briefingStepIndicator');
+  if (stepIndicator) {
+    stepIndicator.textContent = `Pesan ${state.dialogueIdx + 1} dari ${les.briefing.length}`;
+  }
 }
 
 function lanjutDialog() {
   playSound('click');
   const les = currentLesson();
   if (!les || !les.briefing) return;
-  
+
+  if (state.dialogueIdx === -1) {
+    bukaBriefingAwal();
+    return;
+  }
+
   if (state.dialogueIdx < les.briefing.length - 1) {
     state.dialogueIdx++;
     tampilkanDialogLangkah();
   } else {
-    const readyText = `Ketik formula pada sel target ${les.target}. Ketik = untuk melihat rekomendasi atau drag langsung sel tabel untuk memasukkan rentang.`;
-    speakDialogueTypewriter(readyText, state.divisi, 'neutral');
-    document.getElementById('btnDialogueNext').textContent = 'Ulangi Briefing';
-    state.dialogueIdx = -1;
-    pilihCell(les.target);
-    document.getElementById('fx').focus();
+    selesaiBriefingDanMulaiTugas();
   }
 }
 
@@ -7076,6 +7527,7 @@ function cekJawaban() {
 
   if (!formula.startsWith('=')) {
     playSound('wrong');
+    showToast('Wajib diawali karakter sama dengan (=)', 'error');
     fb.className = 'feedback-box err show';
     fb.innerHTML = `
       <div class="feedback-title">
@@ -7093,6 +7545,7 @@ function cekJawaban() {
 
   if (ev.error) {
     playSound('wrong');
+    showToast(ev.error, 'error');
     fb.className = 'feedback-box err show';
     fb.innerHTML = `
       <div class="feedback-title">
@@ -7201,6 +7654,7 @@ function cekJawaban() {
     }
   } else {
     playSound('wrong');
+    showToast(les.dialog.wrong, 'warning');
     fb.className = 'feedback-box err show';
     fb.innerHTML = `
       <div class="feedback-title">
@@ -7230,8 +7684,25 @@ function tutupSuccessModalDanTetap() {
   }
 }
 
-// Global Keyboard Handler for Celebration Modal
+// Global Keyboard Handler for Briefing Modal & Celebration Modal
 window.addEventListener('keydown', e => {
+  const briefingOverlay = document.getElementById('briefingOverlay');
+  if (briefingOverlay && (briefingOverlay.classList.contains('active') || briefingOverlay.style.display === 'flex')) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      if (typewriterTimer) {
+        skipTypewriter();
+      } else {
+        lanjutDialog();
+      }
+      return;
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      selesaiBriefingDanMulaiTugas();
+      return;
+    }
+  }
+
   const modal = document.getElementById('successCelebrationModal');
   if (modal && (modal.classList.contains('active') || modal.classList.contains('show'))) {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -7873,7 +8344,11 @@ function updateMascotVisuals(divisiKey) {
 }
 
 function resize3DMascot() {
-  const container = document.getElementById('mascotCanvasContainer');
+  const briefingOverlay = document.getElementById('briefingOverlay');
+  const isBriefingActive = briefingOverlay && (briefingOverlay.classList.contains('active') || briefingOverlay.style.display === 'flex');
+  const container = isBriefingActive
+    ? (document.getElementById('briefingCanvasContainer') || document.getElementById('mascotCanvasContainer'))
+    : document.getElementById('mascotCanvasContainer');
   if (!container || !renderer || !camera) return;
   const w = container.clientWidth || 78;
   const h = container.clientHeight || 78;
@@ -7885,14 +8360,14 @@ function resize3DMascot() {
 
 function setMascotEmotion(emo, durationMs = 0) {
   mascotEmotion = emo;
-  const tag = document.getElementById('mascotStatusTag');
-  if (tag) {
+  const tags = [document.getElementById('mascotStatusTag'), document.getElementById('briefingStatusTag')].filter(Boolean);
+  tags.forEach(tag => {
     if (emo === 'happy') { tag.textContent = 'Apresiasi'; tag.className = 'pill-tag pill-success pill-status-pulse'; }
     else if (emo === 'thinking') { tag.textContent = 'Menganalisis'; tag.className = 'pill-tag pill-accent pill-status-pulse'; }
     else if (emo === 'sad') { tag.textContent = 'Koreksi'; tag.className = 'pill-tag pill-status-pulse'; }
     else if (emo === 'talking') { tag.textContent = 'Briefing'; tag.className = 'pill-tag pill-accent pill-status-pulse'; }
     else { tag.textContent = 'Siaga'; tag.className = 'pill-tag pill-status-pulse'; }
-  }
+  });
 
   if (emotionResetTimeout) clearTimeout(emotionResetTimeout);
   if (durationMs > 0) {
