@@ -38,6 +38,18 @@
     --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --font-mono: "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+    /* Soft functional tints: low saturation, no gradients */
+    --tint-rose: #f9eef1;
+    --tint-rose-ink: #854a58;
+    --tint-sage: #edf4ee;
+    --tint-sage-ink: #3f5f48;
+    --tint-blue: #edf2fa;
+    --tint-blue-ink: #37567c;
+    --tint-sand: #f9f2e7;
+    --tint-sand-ink: #77592e;
+    --tint-lilac: #f3f0f9;
+    --tint-lilac-ink: #564a76;
+    --line-soft: #e8e8ee;
   }
 
   body {
@@ -155,8 +167,8 @@
     transition: background 0.15s;
   }
   .stat-pill:hover { background: rgba(0, 0, 0, 0.08); }
-  .stat-streak { color: var(--label-secondary); background: #f3f4f6; }
-  .stat-xp { color: var(--label-secondary); background: #f3f4f6; }
+  .stat-streak { color: var(--tint-sand-ink); background: var(--tint-sand); }
+  .stat-xp { color: var(--tint-blue-ink); background: var(--tint-blue); }
 
   .icon-btn-toggle {
     width: 32px;
@@ -535,9 +547,9 @@
     font-weight: 700;
   }
   .target-badge-pill {
-    background: #f4f5f7;
-    border: 1px solid #e8e8ee;
-    color: #3f434a;
+    background: var(--tint-sand);
+    border: 1px solid rgba(119, 89, 46, 0.10);
+    color: var(--tint-sand-ink);
     padding: 2px 7px;
     border-radius: var(--radius-sm);
     font-family: var(--font-mono);
@@ -545,9 +557,9 @@
     font-size: 11.5px;
   }
   .func-badge-pill {
-    background: #f4f5f7;
-    border: 1px solid #e8e8ee;
-    color: #3f434a;
+    background: var(--tint-blue);
+    border: 1px solid rgba(55, 86, 124, 0.10);
+    color: var(--tint-blue-ink);
     padding: 2px 7px;
     border-radius: var(--radius-sm);
     font-family: var(--font-mono);
@@ -1174,9 +1186,9 @@
     border-color: #d4af37 !important;
   }
   .stat-rank {
-    background: #f3f4f6;
-    color: var(--label-secondary);
-    border: 1px solid #e8e8ee;
+    background: var(--tint-lilac);
+    color: var(--tint-lilac-ink);
+    border: 1px solid rgba(86, 74, 118, 0.12);
     font-weight: 600;
   }
 
@@ -2159,9 +2171,9 @@
     width: 46px;
     height: 46px;
     border-radius: 14px;
-    background: #f4f5f7;
-    border: 1px solid #e8e8ee;
-    color: #1c1e22;
+    background: var(--tint-blue);
+    border: 1px solid rgba(55, 86, 124, 0.10);
+    color: var(--tint-blue-ink);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4369,9 +4381,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #1c1e22;
-    background: #f4f5f7;
-    border: 1px solid #e8e8ee;
+    color: var(--tint-ink, #1c1e22);
+    background: var(--tint, #f4f5f7);
+    border: 1px solid rgba(0, 0, 0, 0.04);
     margin-bottom: 14px;
   }
   .division-tile h3 { font-size: 14.5px; font-weight: 650; letter-spacing: -0.015em; margin-bottom: 5px; }
@@ -4432,9 +4444,9 @@
   .home-features .feature-icon-wrap {
     width: 34px; height: 34px;
     border-radius: 10px;
-    background: #f4f5f7;
-    border: 1px solid #e8e8ee;
-    color: var(--label-primary);
+    background: var(--tint-blue);
+    border: 1px solid rgba(55, 86, 124, 0.10);
+    color: var(--tint-blue-ink);
   }
 
   .final-cta {
@@ -4490,9 +4502,9 @@
     width: 44px;
     height: 44px;
     border-radius: 12px;
-    background: #f4f5f7 !important;
-    border: 1px solid #e8e8ee;
-    color: #1c1e22 !important;
+    background: var(--tint, #f4f5f7) !important;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    color: var(--tint-ink, #1c1e22) !important;
     box-shadow: none;
   }
   .card-divisi h3 { font-size: 18px; }
@@ -4590,10 +4602,14 @@
     padding: 18px 22px;
     border: 0;
     border-radius: 0;
-    background: transparent;
+    background: #ffffff;
     box-shadow: none;
     backdrop-filter: none;
   }
+  .stats-band .bento-cell:nth-child(1) { background: #f8fafc; }
+  .stats-band .bento-cell:nth-child(2) { background: #f8fbf6; }
+  .stats-band .bento-cell:nth-child(3) { background: #fdfaf5; }
+  .stats-band .bento-cell:nth-child(4) { background: #faf8fc; }
   .stats-band .bento-cell + .bento-cell {
     border-left: 1px solid #eeeef2;
   }
@@ -4643,13 +4659,13 @@
     width: 34px;
     height: 34px;
     border-radius: 10px;
-    background: #f4f5f7;
-    color: var(--label-primary);
+    background: var(--tint-blue);
+    color: var(--tint-blue-ink);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    border: 1px solid #e8e8ee;
+    border: 1px solid rgba(55, 86, 124, 0.10);
   }
   .dataset-copy { min-width: 0; }
   .dataset-eyebrow {
@@ -4727,9 +4743,9 @@
     align-items: center;
     gap: 10px;
     padding: 11px 12px;
-    border: 1px solid #e8e8ee;
+    border: 1px solid rgba(119, 89, 46, 0.10);
     border-radius: 14px;
-    background: #fafafb;
+    background: var(--tint-sand);
   }
   .reward-medal {
     width: 32px;
@@ -5151,15 +5167,13 @@
     <div class="hero-copy">
       <span class="hero-eyebrow">
         <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        Simulasi Seleksi &amp; Kasus Kantor
+        Simulasi seleksi kerja
       </span>
       <h1 class="hero-title-v2">Kuasai Excel dengan <span class="grad">kasus kantor nyata</span>, bukan sekadar teori.</h1>
-      <p class="hero-desc-v2">
-        Hadapi manajer divisi, kerjakan spreadsheet interaktif, dan susun rumus persis seperti seleksi kerja BUMN &amp; korporasi. Ada petunjuk bertahap, autocomplete rumus, dan sertifikat kompetensi di akhir.
-      </p>
+      <p class="hero-desc-v2">Kerjakan spreadsheet interaktif dengan rumus nyata seperti seleksi BUMN &amp; korporasi.</p>
       <div class="hero-cta">
         <button class="btn" onclick="show('pilih')">
-          Mulai Latihan Sekarang
+          Mulai Latihan
           <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
         <button class="btn btn-outline" onclick="konfirmasiResetProgress()">
@@ -5169,7 +5183,7 @@
       </div>
       <div class="hero-proof">
         <div class="proof-avatars" aria-hidden="true"><span>SM</span><span>KA</span><span>AG</span><span>HR</span></div>
-        <span>4 divisi korporat · 32 kasus · tanpa akun, langsung di browser</span>
+        <span>4 divisi · 32 kasus · tanpa akun</span>
       </div>
     </div>
 
@@ -5250,31 +5264,31 @@
     <div class="section-head">
       <div class="section-kicker">Kurikulum</div>
       <h2 class="section-title">Pilih divisi, hadapi manajernya.</h2>
-      <p class="section-sub">Setiap divisi punya karakter manajer, tipe data, dan jebakan rumus yang berbeda — seperti hari pertama kerja.</p>
+      <p class="section-sub">Empat divisi, empat karakter manajer, empat set data.</p>
     </div>
     <div class="division-tiles">
-      <div class="division-tile" onclick="bukaDivisiDetail('sales')">
+      <div class="division-tile" style="--tint:#f9eef1;--tint-ink:#854a58" onclick="bukaDivisiDetail('sales')">
         <div class="tile-icon"><svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>Sales &amp; Marketing</h3>
-        <p>Rekap omzet cabang, komisi target, dan lookup data tim sales.</p>
+        <p>Rekap omzet, komisi, dan lookup data sales.</p>
         <div class="tile-meta"><span>Bu Rina · 8 soal</span><span class="arrow">→</span></div>
       </div>
-      <div class="division-tile" onclick="bukaDivisiDetail('keuangan')">
+      <div class="division-tile" style="--tint:#edf4ee;--tint-ink:#3f5f48" onclick="bukaDivisiDetail('keuangan')">
         <div class="tile-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
         <h3>Keuangan &amp; Akuntansi</h3>
-        <p>Arus kas, rekonsiliasi tagihan, dan rata-rata pengeluaran.</p>
+        <p>Arus kas, tagihan jatuh tempo, dan rata-rata pengeluaran.</p>
         <div class="tile-meta"><span>Pak Hendra · 8 soal</span><span class="arrow">→</span></div>
       </div>
-      <div class="division-tile" onclick="bukaDivisiDetail('admin')">
+      <div class="division-tile" style="--tint:#edf2fa;--tint-ink:#37567c" onclick="bukaDivisiDetail('admin')">
         <div class="tile-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
         <h3>Administrasi &amp; GA</h3>
-        <p>Data karyawan, inventaris aset IT, dan arsip kantor.</p>
+        <p>Data karyawan, inventaris aset, dan arsip kantor.</p>
         <div class="tile-meta"><span>Pak Dani · 8 soal</span><span class="arrow">→</span></div>
       </div>
-      <div class="division-tile" onclick="bukaDivisiDetail('hr')">
+      <div class="division-tile" style="--tint:#f9f2e7;--tint-ink:#77592e" onclick="bukaDivisiDetail('hr')">
         <div class="tile-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>Human Resources</h3>
-        <p>Presensi, lembur, dan komponen gaji staf.</p>
+        <p>Presensi, lembur, dan komponen gaji.</p>
         <div class="tile-meta"><span>Bu Sarah · 8 soal</span><span class="arrow">→</span></div>
       </div>
     </div>
@@ -5289,17 +5303,17 @@
       <div class="workflow-card">
         <div class="workflow-num">1</div>
         <h3>Baca briefing manajer</h3>
-        <p>Pahami konteks pekerjaan dan data mentah yang harus diolah — persis seperti instruksi atasan di hari pertama.</p>
+        <p>Baca konteks dan data mentah seperti instruksi hari pertama.</p>
       </div>
       <div class="workflow-card">
         <div class="workflow-num">2</div>
         <h3>Tulis rumus di sel target</h3>
-        <p>Ketik langsung di spreadsheet, drag rentang sel, dan pakai autocomplete. Petunjuk tersedia tanpa membocorkan jawaban.</p>
+        <p>Ketik rumus di sel target, tarik rentang sel dengan drag.</p>
       </div>
       <div class="workflow-card">
         <div class="workflow-num">3</div>
         <h3>Verifikasi &amp; klaim sertifikat</h3>
-        <p>Dapatkan koreksi instan, kumpulkan XP, lalu cetak sertifikat kompetensi untuk CV dan LinkedIn.</p>
+        <p>Dapat koreksi instan, kumpulkan XP, lalu unduh sertifikat.</p>
       </div>
     </div>
   </div>
@@ -5315,28 +5329,28 @@
           <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
         </div>
         <h4>Drag Rentang Sel Nyata</h4>
-        <p>Klik dan drag sel untuk memasukkan rentang koordinat seperti A2:A7 ke formula bar.</p>
+        <p>Klik dan drag sel untuk mengisi rentang seperti A2:A7.</p>
       </div>
       <div class="feature-item">
         <div class="feature-icon-wrap">
           <svg class="icon" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
         </div>
         <h4>Autocomplete &amp; Sintaks</h4>
-        <p>Saran fungsi muncul saat mengetik, lengkap dengan panduan parameter dan contoh pola.</p>
+        <p>Saran fungsi muncul saat mengetik, lengkap dengan parameternya.</p>
       </div>
       <div class="feature-item">
         <div class="feature-icon-wrap">
           <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
         </div>
         <h4>Petunjuk Berbasis Pola</h4>
-        <p>Belajar struktur logika rumus secara mandiri tanpa menyalin kunci jawaban.</p>
+        <p>Belajar logika rumus tanpa menyalin kunci jawaban.</p>
       </div>
       <div class="feature-item">
         <div class="feature-icon-wrap">
           <svg class="icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
         <h4>Progress Tersimpan Lokal</h4>
-        <p>XP, streak, dan progres tersimpan di browser — bisa dilanjutkan kapan saja tanpa akun.</p>
+        <p>XP dan progres tersimpan di browser, tanpa akun.</p>
       </div>
     </div>
   </div>
@@ -5344,7 +5358,7 @@
   <div class="final-cta">
     <div>
       <h2>Siap menghadapi tes Excel pertama?</h2>
-      <p>Mulai dari Bab 0, kuasai fondasi rumus, lalu naik ke studi kasus korporat.</p>
+      <p>Mulai dari Bab 0, lanjut ke studi kasus korporat.</p>
     </div>
     <div style="display:flex; gap:10px; flex-wrap:wrap; position:relative; z-index:1">
       <button class="btn" onclick="show('pilih')">Pilih Divisi <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
@@ -5359,7 +5373,7 @@
     <div>
       <div class="section-kicker">Ruang kerja</div>
       <h2>Pilih Divisi Pekerjaan</h2>
-      <p>Setiap divisi memiliki manajer pendamping dan kumpulan kasus nyata.</p>
+      <p>Pilih divisi, lalu kerjakan kasusnya.</p>
     </div>
     <button class="btn btn-outline" onclick="show('home')">
       <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
@@ -5392,7 +5406,7 @@
         </div>
         <div>
           <h2 class="divisi-hero-title" id="hubDivisiTitle">Sales &amp; Marketing</h2>
-          <p class="divisi-hero-desc" id="hubDivisiDesc">Rekapitulasi penjualan cabang, skema komisi target bulanan, dan lookup data tim sales.</p>
+          <p class="divisi-hero-desc" id="hubDivisiDesc">Rekap omzet, komisi, dan lookup data sales.</p>
         </div>
       </div>
     </div>
@@ -5454,7 +5468,7 @@
           <span class="guidebook-read-time" id="guidebookBannerReadTime">3 Menit Baca</span>
         </div>
         <h3 class="guidebook-title" id="guidebookBannerTitle">Fondasi Rumus &amp; Jebakan Seleksi Kerja</h3>
-        <p class="guidebook-desc" id="guidebookBannerDesc">Pahami cara kerja rumus, anatomi argumen, dan 3 kesalahan fatal sebelum masuk ke simulasi spreadsheet.</p>
+        <p class="guidebook-desc" id="guidebookBannerDesc">Pahami anatomi rumus dan 3 kesalahan fatal.</p>
       </div>
     </div>
     <div class="guidebook-card-right">
@@ -5627,9 +5641,9 @@
       </div>
 
       <!-- Live Drag Selection Helper Banner -->
-      <div class="drag-hint-banner" id="dragHintBanner">
+      <div class="drag-hint-banner" id="dragHintBanner" title="Mode Rujukan Rumus: klik &amp; drag sel pada tabel untuk memasukkan rentang koordinat ke rumus.">
         <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-        <span>Mode Rujukan Rumus: Klik &amp; drag sel pada tabel untuk memasukkan rentang koordinat ke rumus.</span>
+        <span>Mode rumus: drag sel untuk mengisi rentang.</span>
       </div>
 
       <!-- Mobile Quick-Insert Formula Strip -->
@@ -6024,26 +6038,34 @@ const DIVISI = {
   sales: {
     label: 'Sales & Marketing',
     warna: '#db2777',
+    tint: '#f9eef1',
+    tintInk: '#854a58',
     icon: '<svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>',
-    desk: 'Rekapitulasi penjualan cabang, skema komisi target bulanan, dan lookup data tim sales.'
+    desk: 'Rekap omzet cabang, komisi, dan lookup data sales.'
   },
   keuangan: {
     label: 'Keuangan & Akuntansi',
     warna: '#059669',
+    tint: '#edf4ee',
+    tintInk: '#3f5f48',
     icon: '<svg class="icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>',
-    desk: 'Pemisahan arus kas kas masuk, rekonsiliasi tagihan hutang jatuh tempo, dan rata-rata pengeluaran.'
+    desk: 'Arus kas, tagihan jatuh tempo, dan rata-rata pengeluaran.'
   },
   admin: {
     label: 'Administrasi & GA',
     warna: '#4f46e5',
+    tint: '#edf2fa',
+    tintInk: '#37567c',
     icon: '<svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>',
-    desk: 'Penyaringan data karyawan aktif, inventaris aset departemen IT, serta arsip kantor.'
+    desk: 'Data karyawan, inventaris aset, dan arsip kantor.'
   },
   hr: {
     label: 'Human Resources (HRD)',
     warna: '#d97706',
+    tint: '#f9f2e7',
+    tintInk: '#77592e',
     icon: '<svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
-    desk: 'Pencatatan presensi absensi harian dan perhitungan komponen gaji lembur staf.'
+    desk: 'Presensi, lembur, dan komponen gaji.'
   }
 };
 
@@ -6051,7 +6073,7 @@ const DIVISION_GUIDEBOOKS = {
   sales: {
     badge: 'Sales & Marketing • Bab 0',
     title: 'Fondasi Analisis Omzet & Skema Target Penjualan',
-    subtitle: 'Kuasai cara kerja SUMIF, IF logika, dan COUNTIF sebelum memulai rekapitulasi data cabang.',
+    subtitle: 'SUMIF, IF, dan COUNTIF untuk rekap data cabang.',
     readTime: '3 Menit Baca',
     overview: 'Di divisi Sales & Marketing, ribuan baris transaksi mingguan masuk dari berbagai kota. Kunci kerja seorang analis adalah mampu menyaring angka secara otomatis berdasarkan syarat spesifik (seperti cabang Jakarta atau transaksi di atas 100 juta) tanpa kalkulasi manual.',
     keyFormulas: [
@@ -6110,7 +6132,7 @@ const DIVISION_GUIDEBOOKS = {
   keuangan: {
     badge: 'Keuangan & Akuntansi • Bab 0',
     title: 'Fondasi Arus Kas, Neraca & Rekonsiliasi Faktur',
-    subtitle: 'Kuasai audit kas masuk, saldo jatuh tempo, dan pencarian akun via VLOOKUP sebelum simulasi spreadsheet.',
+    subtitle: 'SUM, HLOOKUP, dan VLOOKUP untuk audit kas.',
     readTime: '3 Menit Baca',
     overview: 'Divisi Finance & Accounting menuntut akurasi 100% tanpa toleransi selisih. Fondasi utamanya adalah memvalidasi arus kas masuk/keluar, menyaring invoice jatuh tempo, dan mencocokkan kode akun buku besar via VLOOKUP.',
     keyFormulas: [
@@ -6168,7 +6190,7 @@ const DIVISION_GUIDEBOOKS = {
   admin: {
     badge: 'Administrasi & Logistik • Bab 0',
     title: 'Fondasi Manajemen Inventaris & Arsip Operasional',
-    subtitle: 'Pahami cara memetakan ribuan aset kantor, status utilitas, dan rata-rata masa pakai inventaris.',
+    subtitle: 'COUNTIF dan AVERAGE untuk aset kantor.',
     readTime: '3 Menit Baca',
     overview: 'Divisi Administrasi & GA bertanggung jawab atas kelancaran operasional kantor: mencatat inventaris laptop dan kendaraan operasional, menyaring karyawan aktif, serta mengarsipkan data logistik.',
     keyFormulas: [
@@ -6224,7 +6246,7 @@ const DIVISION_GUIDEBOOKS = {
   hr: {
     badge: 'Human Resources (HRD) • Bab 0',
     title: 'Fondasi Payroll, Evaluasi Wawancara & Status PKWT',
-    subtitle: 'Pelajari rekapitulasi data personalia, rasio kontrak kerja, dan ambang kelulusan skor interview.',
+    subtitle: 'COUNTIF dan IF untuk data personalia.',
     readTime: '3 Menit Baca',
     overview: 'Divisi HRD mengelola aset terpenting perusahaan: manusia. Analis HR bertugas menghitung rasio karyawan PKWT vs tetap, memverifikasi skor panel wawancara, serta menguji status kepatuhan ketenagakerjaan.',
     keyFormulas: [
@@ -8175,6 +8197,8 @@ function renderDivisiCards() {
 
     const el = document.createElement('div');
     el.className = 'card-divisi';
+    el.style.setProperty('--tint', d.tint || '#f4f5f7');
+    el.style.setProperty('--tint-ink', d.tintInk || '#1c1e22');
     const mentorInitials = (mascot.name || '?').split(' ').filter(w => !/^(bu|pak|ibu|bapak)$/i.test(w)).map(w => w[0]).slice(0, 2).join('').toUpperCase();
     el.innerHTML = `
       <div>
@@ -8185,7 +8209,7 @@ function renderDivisiCards() {
         <h3>${d.label}</h3>
         <p>${d.desk}</p>
         <div class="mentor-row">
-          <span class="mentor-avatar">${mentorInitials}</span>
+          <span class="mentor-avatar" style="background:${d.tint || '#eef0f3'};color:${d.tintInk || '#4b4f57'}">${mentorInitials}</span>
           <span>Pendamping: <b>${mascot.name}</b> · ${mascot.role}</span>
         </div>
 
@@ -8373,6 +8397,8 @@ function renderDivisiDetail(k) {
   const hubBadgeIcon = document.getElementById('hubDivisiBadgeIcon');
   if (hubBadgeIcon) {
     hubBadgeIcon.innerHTML = d.icon;
+    hubBadgeIcon.style.background = d.tint || '#f4f5f7';
+    hubBadgeIcon.style.color = d.tintInk || '#1c1e22';
   }
 
   const hubTitle = document.getElementById('hubDivisiTitle');
@@ -8387,6 +8413,8 @@ function renderDivisiDetail(k) {
   const hubMgrAvatar = document.getElementById('hubManagerAvatar');
   if (hubMgrAvatar && mascot) {
     hubMgrAvatar.textContent = (mascot.name || '?').split(' ').filter(w => !/^(bu|pak|ibu|bapak)$/i.test(w)).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+    hubMgrAvatar.style.background = d.tint || '#eef0f3';
+    hubMgrAvatar.style.color = d.tintInk || '#4b4f57';
   }
 
   const hubMgrRole = document.getElementById('hubManagerRole');
@@ -8497,7 +8525,7 @@ function renderDivisiDetail(k) {
             <span class="soal-title">${esc(les.judul)}</span>
             ${statusTag}
           </div>
-          <div class="soal-desc">${esc(les.tujuan || les.cerita)}</div>
+          <div class="soal-desc" title="${esc(les.cerita || les.tujuan || '')}">${esc(les.tujuan || les.cerita)}</div>
           <div class="soal-chips-row">
             <span class="target-badge-pill">Target: ${les.target}</span>
             <span class="func-badge-pill">Rumus: =${les.fungsi}</span>
@@ -9344,7 +9372,9 @@ function muatMisi() {
   // Render Hero Task Banner
   document.getElementById('taskTargetBadge').textContent = les.target;
   document.getElementById('taskFuncBadge').textContent = les.fungsi;
-  document.getElementById('taskGoalText').textContent = les.tujuan || les.cerita;
+  const taskGoalEl = document.getElementById('taskGoalText');
+  taskGoalEl.textContent = les.tujuan || les.cerita;
+  taskGoalEl.title = les.cerita || les.tujuan || '';
   const heroDivisiEl = document.getElementById('heroTaskDivisi');
   if (heroDivisiEl) heroDivisiEl.textContent = `${DIVISI[state.divisi].label} • Misi ${state.lessonIdx + 1}: ${les.judul}`;
 
@@ -9549,7 +9579,7 @@ function selesaiBriefingDanMulaiTugas() {
     }
 
     // Set sidebar status
-    const readyText = `Silakan ketik formula pada sel target ${les.target}. Ketik = untuk melihat rekomendasi atau drag langsung sel tabel untuk memasukkan rentang.`;
+    const readyText = `Ketik rumus di sel ${les.target}. Tarik sel tabel untuk mengisi rentang.`;
     speakDialogueTypewriter(readyText, state.divisi, 'neutral');
     const btnNext = document.getElementById('btnDialogueNext');
     if (btnNext) btnNext.textContent = 'Ulangi Briefing';
