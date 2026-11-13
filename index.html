@@ -4344,7 +4344,7 @@
     border-radius: 18px;
     overflow: hidden;
   }
-  .stats-band div {
+  .stats-band > div {
     background: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(8px);
     padding: 18px 20px;
@@ -4622,6 +4622,229 @@
   @media (max-width: 520px) {
     .stats-band { grid-template-columns: 1fr 1fr; }
     .home-hero .hero-cta .btn { width: 100%; }
+  }
+
+  /* ========================================================
+     REFINEMENT — BENTO STATS, DATASET BAR, REWARD CARD
+     ======================================================== */
+  .stats-band {
+    grid-template-columns: 1.35fr 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 20px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    overflow: visible;
+  }
+  .stats-band .bento-cell {
+    position: relative;
+    text-align: left;
+    padding: 20px 22px;
+    border: 1px solid var(--separator);
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+    backdrop-filter: none;
+  }
+  .stats-band .bento-cell:nth-child(1) {
+    background: linear-gradient(135deg, #f4f0ff 0%, #eae3ff 100%);
+    border-color: #ddd6fe;
+  }
+  .stats-band .bento-cell:nth-child(2) {
+    background: linear-gradient(135deg, #f7ffe8 0%, #e8fbc6 100%);
+    border-color: #d9f99d;
+  }
+  .stats-band .bento-cell:nth-child(3) {
+    background: #ffffff;
+  }
+  .stats-band .bento-cell:nth-child(4) {
+    background: linear-gradient(135deg, #fff9f0 0%, #ffedd5 100%);
+    border-color: #fed7aa;
+  }
+  .bento-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+    color: var(--label-secondary);
+    font-size: 11px;
+    font-weight: 650;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .bento-topline svg { color: var(--label-tertiary); }
+  .stats-band b {
+    font-size: 34px;
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: -0.045em;
+  }
+  .stats-band .bento-cell > span {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* Dataset bar — data-table reference */
+  .sheet-dataset-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 0 2px 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--separator);
+  }
+  .dataset-id {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .dataset-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f0f7ff, #e2efff);
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(0, 113, 227, 0.12);
+  }
+  .dataset-copy { min-width: 0; }
+  .dataset-eyebrow {
+    display: block;
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--label-tertiary);
+    margin-bottom: 1px;
+  }
+  .dataset-title {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 650;
+    color: var(--label-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .dataset-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .dataset-count {
+    font-size: 11px;
+    color: var(--label-tertiary);
+    white-space: nowrap;
+  }
+  .dataset-lock {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 650;
+    color: #047857;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.16);
+    padding: 3px 7px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
+  /* Table polish */
+  .grid-container {
+    border-color: #e6e9ef;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+  table.sheet th {
+    background: #f8fafc;
+    color: #6b7280;
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    height: 34px;
+  }
+  table.sheet td.col-index {
+    background: #fbfcfd;
+    color: #9ca3af;
+    font-weight: 500;
+    font-size: 10.5px;
+  }
+  table.sheet tbody tr:hover td.sheet-cell:not(.selected):not(.target-cell) {
+    background: #f7fbff;
+  }
+  table.sheet tbody tr:hover td.col-index {
+    background: #f2f7fc;
+    color: #6b7280;
+  }
+
+  /* Reward card — playful learning reference */
+  .mission-reward-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 12px;
+    border: 1px solid #e9defc;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f7f2ff 0%, #fff8ef 100%);
+  }
+  .reward-medal {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 5px 14px rgba(109, 40, 217, 0.28);
+  }
+  .reward-copy { min-width: 0; }
+  .reward-copy b {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--label-primary);
+    line-height: 1.2;
+  }
+  .reward-copy span {
+    display: block;
+    font-size: 10.5px;
+    color: var(--label-secondary);
+    margin-top: 1px;
+  }
+  .reward-xp {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 800;
+    color: #b45309;
+    background: #ffffff;
+    border: 1px solid #fed7aa;
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  @media (max-width: 1080px) {
+    .stats-band { grid-template-columns: 1.2fr 1fr; }
+  }
+  @media (max-width: 880px) {
+    .stats-band { grid-template-columns: 1fr 1fr; }
+    .stats-band .bento-cell { padding: 16px; }
+    .stats-band b { font-size: 26px; }
+    .sheet-dataset-bar { align-items: flex-start; }
+    .dataset-lock { display: none; }
+  }
+  @media (max-width: 520px) {
+    .dataset-count { display: none; }
+    .dataset-title { max-width: 210px; }
   }
 
 </style>
@@ -5048,10 +5271,38 @@
   </div>
 
   <div class="stats-band">
-    <div><b>4</b><span>Divisi korporat</span></div>
-    <div><b>32</b><span>Kasus kerja nyata</span></div>
-    <div><b>5</b><span>Rumus inti interview</span></div>
-    <div><b>1</b><span>Sertifikat kompetensi</span></div>
+    <div class="bento-cell">
+      <div class="bento-topline">
+        <span>Total latihan</span>
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+      </div>
+      <b>32</b>
+      <span>Kasus kerja nyata</span>
+    </div>
+    <div class="bento-cell">
+      <div class="bento-topline">
+        <span>Divisi</span>
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <b>4</b>
+      <span>Divisi korporat</span>
+    </div>
+    <div class="bento-cell">
+      <div class="bento-topline">
+        <span>Fungsi</span>
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+      </div>
+      <b>5</b>
+      <span>Rumus inti interview</span>
+    </div>
+    <div class="bento-cell">
+      <div class="bento-topline">
+        <span>Sertifikat</span>
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+      </div>
+      <b>1</b>
+      <span>Sertifikat kompetensi</span>
+    </div>
   </div>
 
   <div class="home-section">
@@ -5414,6 +5665,26 @@
   <div class="mission-workspace">
     <!-- Panel Spreadsheet -->
     <div class="panel-spreadsheet">
+      <!-- Dataset Bar: table context & live metadata -->
+      <div class="sheet-dataset-bar">
+        <div class="dataset-id">
+          <span class="dataset-mark">
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </span>
+          <div class="dataset-copy">
+            <span class="dataset-eyebrow">Lembar Data</span>
+            <strong class="dataset-title" id="datasetTitle">Rekap Penjualan Cabang Jakarta</strong>
+          </div>
+        </div>
+        <div class="dataset-meta">
+          <span class="dataset-count" id="datasetCount">10 baris · 2 kolom</span>
+          <span class="dataset-lock">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" style="width:10px;height:10px"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Data latihan
+          </span>
+        </div>
+      </div>
+
       <!-- Live Drag Selection Helper Banner -->
       <div class="drag-hint-banner" id="dragHintBanner">
         <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
@@ -5555,6 +5826,18 @@
           <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           Cek Jawaban
         </button>
+
+        <!-- Mission reward -->
+        <div class="mission-reward-card">
+          <span class="reward-medal">
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </span>
+          <div class="reward-copy">
+            <b>Reward Misi</b>
+            <span>Selesaikan sel target dengan tepat</span>
+          </div>
+          <span class="reward-xp">+50 XP</span>
+        </div>
 
         <!-- Feedback Alert Container -->
         <div class="feedback-box" id="feedback"></div>
@@ -8514,6 +8797,11 @@ function renderGrid(les) {
 
   const activeCols = getLessonCols(les);
   const maxRows = getLessonMaxRow(les);
+
+  const datasetTitle = document.getElementById('datasetTitle');
+  if (datasetTitle) datasetTitle.textContent = les.judul || 'Lembar data latihan';
+  const datasetCount = document.getElementById('datasetCount');
+  if (datasetCount) datasetCount.textContent = `${maxRows} baris · ${activeCols.length} kolom`;
 
   const curFormula = (cells[les.target]?.f || state.formula || '').trim();
   const highlightedRanges = getHighlightedRanges(curFormula);
