@@ -39,16 +39,16 @@
     --font-mono: "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
     /* Soft functional tints: low saturation, no gradients */
-    --tint-rose: #f9eef1;
-    --tint-rose-ink: #854a58;
-    --tint-sage: #edf4ee;
-    --tint-sage-ink: #3f5f48;
-    --tint-blue: #edf2fa;
-    --tint-blue-ink: #37567c;
-    --tint-sand: #f9f2e7;
-    --tint-sand-ink: #77592e;
-    --tint-lilac: #f3f0f9;
-    --tint-lilac-ink: #564a76;
+    --tint-rose: #f7dbe3;
+    --tint-rose-ink: #7c3a4d;
+    --tint-sage: #d9eddf;
+    --tint-sage-ink: #2f563d;
+    --tint-blue: #d8e8fa;
+    --tint-blue-ink: #294d78;
+    --tint-sand: #f9e5c5;
+    --tint-sand-ink: #6d4f22;
+    --tint-lilac: #e6ddf7;
+    --tint-lilac-ink: #483a72;
     --line-soft: #e8e8ee;
   }
 
@@ -417,9 +417,15 @@
     background: #ffffff;
   }
 
-  /* Division themes now share one neutral surface; color is reserved for the primary action. */
+  /* Soft division tint on the mission header */
+  #misi.theme-sales { --div-tint: var(--tint-rose); }
+  #misi.theme-keuangan { --div-tint: var(--tint-sage); }
+  #misi.theme-admin { --div-tint: var(--tint-blue); }
+  #misi.theme-hr { --div-tint: var(--tint-sand); }
   #misi .misi-unified-card {
     border-left: 1px solid var(--separator-opaque);
+    background: #ffffff;
+    background: color-mix(in srgb, var(--div-tint, #ffffff) 38%, #ffffff);
   }
 
   /* Top Row: Context & Navigation */
@@ -2141,6 +2147,7 @@
      ======================================================== */
   .divisi-guidebook-card {
     background: #ffffff;
+    background: color-mix(in srgb, var(--tint-blue) 45%, #ffffff);
     border: 1px solid #e8e8ee;
     border-radius: 20px;
     padding: 16px 20px;
@@ -3027,7 +3034,8 @@
     gap: 8px;
   }
   .divisi-hero-card {
-    background: var(--card-bg);
+    background: #ffffff;
+    background: color-mix(in srgb, var(--tint, #ffffff) 55%, #ffffff);
     border: 1px solid var(--separator-opaque);
     border-radius: var(--radius-lg);
     padding: 24px;
@@ -4364,6 +4372,7 @@
   .division-tile {
     position: relative;
     background: #ffffff;
+    background: color-mix(in srgb, var(--tint, #ffffff) 55%, #ffffff);
     border: 1px solid #e8e8ee;
     border-radius: 16px;
     padding: 20px;
@@ -4372,7 +4381,7 @@
   }
   .division-tile:hover {
     transform: translateY(-2px);
-    border-color: #d5d6dd;
+    border-color: rgba(0, 0, 0, 0.12);
     box-shadow: 0 12px 28px rgba(16, 18, 22, 0.07);
   }
   .division-tile .tile-icon {
@@ -4493,6 +4502,7 @@
     position: relative;
     padding: 24px;
     background: #ffffff;
+    background: color-mix(in srgb, var(--tint, #ffffff) 42%, #ffffff);
   }
   .card-divisi:hover {
     border-color: #d5d6dd;
@@ -4606,10 +4616,10 @@
     box-shadow: none;
     backdrop-filter: none;
   }
-  .stats-band .bento-cell:nth-child(1) { background: #f8fafc; }
-  .stats-band .bento-cell:nth-child(2) { background: #f8fbf6; }
-  .stats-band .bento-cell:nth-child(3) { background: #fdfaf5; }
-  .stats-band .bento-cell:nth-child(4) { background: #faf8fc; }
+  .stats-band .bento-cell:nth-child(1) { background: #e9f1fb; }
+  .stats-band .bento-cell:nth-child(2) { background: #e9f5ea; }
+  .stats-band .bento-cell:nth-child(3) { background: #fdf2df; }
+  .stats-band .bento-cell:nth-child(4) { background: #f0e9fb; }
   .stats-band .bento-cell + .bento-cell {
     border-left: 1px solid #eeeef2;
   }
@@ -8399,6 +8409,8 @@ function renderDivisiDetail(k) {
     hubBadgeIcon.innerHTML = d.icon;
     hubBadgeIcon.style.background = d.tint || '#f4f5f7';
     hubBadgeIcon.style.color = d.tintInk || '#1c1e22';
+    const hubHeroCard = document.getElementById('hubHeroCard');
+    if (hubHeroCard) hubHeroCard.style.setProperty('--tint', d.tint || '#ffffff');
   }
 
   const hubTitle = document.getElementById('hubDivisiTitle');
