@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Excel Lab — Simulasi Latihan Kerja & Persiapan Interview</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101114'/%3E%3Cg stroke='%23ffffff' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M10 11h12M10 16h12M10 21h12'/%3E%3Cpath d='M16 11v10'/%3E%3C/g%3E%3C/svg%3E">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   
@@ -154,8 +155,8 @@
     transition: background 0.15s;
   }
   .stat-pill:hover { background: rgba(0, 0, 0, 0.08); }
-  .stat-streak { color: var(--system-orange); background: var(--system-orange-subtle); }
-  .stat-xp { color: var(--accent); background: var(--accent-subtle); }
+  .stat-streak { color: var(--label-secondary); background: #f3f4f6; }
+  .stat-xp { color: var(--label-secondary); background: #f3f4f6; }
 
   .icon-btn-toggle {
     width: 32px;
@@ -258,7 +259,7 @@
     background: rgba(0, 0, 0, 0.05);
     color: var(--label-secondary);
   }
-  .pill-accent { background: var(--accent-subtle); color: var(--accent); font-weight: 600; }
+  .pill-accent { background: #eceef2; color: var(--label-primary); font-weight: 600; }
   .pill-success { background: var(--system-green-subtle); color: var(--system-green); font-weight: 600; }
   .pill-warning { background: var(--system-orange-subtle); color: var(--system-orange); font-weight: 600; }
 
@@ -325,7 +326,7 @@
   /* Division Grid */
   .grid-divisi {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 18px;
   }
   .card-divisi {
@@ -400,26 +401,13 @@
     position: relative;
   }
   .misi-unified-card.completed {
-    border-color: rgba(52, 199, 89, 0.35);
-    background: linear-gradient(180deg, #ffffff 0%, rgba(52, 199, 89, 0.04) 100%);
+    border-color: #e0e1e7;
+    background: #ffffff;
   }
 
-  /* Division Themes on Unified Card */
-  #misi.theme-sales .misi-unified-card {
-    border-left: 4px solid #0071e3;
-    background: linear-gradient(135deg, rgba(0, 113, 227, 0.025) 0%, #ffffff 100%);
-  }
-  #misi.theme-keuangan .misi-unified-card {
-    border-left: 4px solid #059669;
-    background: linear-gradient(135deg, rgba(5, 150, 105, 0.025) 0%, #ffffff 100%);
-  }
-  #misi.theme-admin .misi-unified-card {
-    border-left: 4px solid #4f46e5;
-    background: linear-gradient(135deg, rgba(79, 70, 229, 0.025) 0%, #ffffff 100%);
-  }
-  #misi.theme-hr .misi-unified-card {
-    border-left: 4px solid #d97706;
-    background: linear-gradient(135deg, rgba(217, 119, 6, 0.025) 0%, #ffffff 100%);
+  /* Division themes now share one neutral surface; color is reserved for the primary action. */
+  #misi .misi-unified-card {
+    border-left: 1px solid var(--separator-opaque);
   }
 
   /* Top Row: Context & Navigation */
@@ -447,11 +435,6 @@
     border: 1px solid var(--separator);
     color: var(--label-primary);
   }
-  #misi.theme-sales .misi-dept-badge { background: rgba(0, 113, 227, 0.08); color: #0071e3; border-color: rgba(0, 113, 227, 0.2); }
-  #misi.theme-keuangan .misi-dept-badge { background: rgba(5, 150, 105, 0.08); color: #059669; border-color: rgba(5, 150, 105, 0.2); }
-  #misi.theme-admin .misi-dept-badge { background: rgba(79, 70, 229, 0.08); color: #4f46e5; border-color: rgba(79, 70, 229, 0.2); }
-  #misi.theme-hr .misi-dept-badge { background: rgba(217, 119, 6, 0.08); color: #d97706; border-color: rgba(217, 119, 6, 0.2); }
-
   .misi-floor-text {
     font-size: 12px;
     color: var(--label-secondary);
@@ -552,22 +535,24 @@
     font-weight: 700;
   }
   .target-badge-pill {
-    background: var(--system-orange-subtle);
-    color: var(--system-orange);
+    background: #f4f5f7;
+    border: 1px solid #e8e8ee;
+    color: #3f434a;
     padding: 2px 7px;
     border-radius: var(--radius-sm);
     font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: 12px;
+    font-weight: 600;
+    font-size: 11.5px;
   }
   .func-badge-pill {
-    background: var(--accent-subtle);
-    color: var(--accent);
+    background: #f4f5f7;
+    border: 1px solid #e8e8ee;
+    color: #3f434a;
     padding: 2px 7px;
     border-radius: var(--radius-sm);
     font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: 12px;
+    font-weight: 600;
+    font-size: 11.5px;
   }
   .hero-status-pill {
     display: inline-flex;
@@ -742,10 +727,11 @@
     align-items: center;
     gap: 6px;
     padding: 4px 10px;
-    background: var(--accent-subtle);
+    background: #f3f4f6;
+    border: 1px solid #ececf1;
     border-radius: var(--radius-sm);
     font-size: 11px;
-    color: var(--accent);
+    color: var(--label-secondary);
     font-weight: 600;
     margin-bottom: 8px;
     animation: fadeIn 0.2s var(--ease-apple);
@@ -1188,9 +1174,9 @@
     border-color: #d4af37 !important;
   }
   .stat-rank {
-    background: rgba(147, 51, 234, 0.08);
-    color: #7e22ce;
-    border: 1px solid rgba(147, 51, 234, 0.2);
+    background: #f3f4f6;
+    color: var(--label-secondary);
+    border: 1px solid #e8e8ee;
     font-weight: 600;
   }
 
@@ -2142,8 +2128,8 @@
      DUOLINGO-STYLE UNIT GUIDEBOOK (BAB AWAL & PANDUAN BELAJAR)
      ======================================================== */
   .divisi-guidebook-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 245, 255, 0.85) 100%);
-    border: 1px solid rgba(0, 113, 227, 0.22);
+    background: #ffffff;
+    border: 1px solid #e8e8ee;
     border-radius: 20px;
     padding: 16px 20px;
     margin-bottom: 20px;
@@ -2151,26 +2137,16 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    box-shadow: 0 4px 16px rgba(0, 113, 227, 0.06);
+    box-shadow: none;
     cursor: pointer;
     transition: all 0.25s var(--ease-apple);
     position: relative;
     overflow: hidden;
   }
   .divisi-guidebook-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 113, 227, 0.12);
-    border-color: var(--accent);
-  }
-  .divisi-guidebook-card::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: var(--accent);
-    border-radius: 4px 0 0 4px;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(16, 18, 22, 0.06);
+    border-color: #d5d6dd;
   }
   .guidebook-card-left {
     display: flex;
@@ -2183,18 +2159,18 @@
     width: 46px;
     height: 46px;
     border-radius: 14px;
-    background: linear-gradient(135deg, #0071e3 0%, #005bb5 100%);
-    color: #ffffff;
+    background: #f4f5f7;
+    border: 1px solid #e8e8ee;
+    color: #1c1e22;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
   }
   .guidebook-icon-badge svg {
     width: 22px;
     height: 22px;
-    stroke: #ffffff;
+    stroke: currentColor;
   }
   .guidebook-text-wrap {
     flex: 1;
@@ -2211,7 +2187,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--accent);
+    color: var(--label-secondary);
   }
   .guidebook-read-time {
     font-size: 11px;
@@ -2248,12 +2224,12 @@
 
   /* Guidebook Item in Soal List */
   .divisi-soal-item.guidebook-item {
-    border-left: 3.5px solid var(--accent);
-    background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+    background: #ffffff;
   }
   .soal-num-badge.guidebook-num {
-    background: rgba(0, 113, 227, 0.1);
-    color: var(--accent);
+    background: #f4f5f7;
+    border-color: #e8e8ee;
+    color: var(--label-secondary);
   }
 
   /* Guidebook Modal Dialog */
@@ -2387,11 +2363,8 @@
     padding: 4px 8px;
     border-radius: 6px;
   }
-  .token-fn { background: rgba(0, 113, 227, 0.12); color: #0071e3; }
-  .token-arg1 { background: rgba(52, 199, 89, 0.12); color: #248a3d; }
-  .token-arg2 { background: rgba(255, 149, 0, 0.12); color: #b45309; }
-  .token-arg3 { background: rgba(175, 82, 222, 0.12); color: #8944ab; }
-  .token-arg4 { background: rgba(239, 68, 68, 0.12); color: #dc2626; }
+  .token-fn { background: #101114; color: #ffffff; }
+  .token-arg1, .token-arg2, .token-arg3, .token-arg4 { background: #f1f2f4; color: #3f434a; }
   .token-sep { color: var(--label-tertiary); font-weight: 400; }
   .anatomy-tokens-legend {
     display: grid;
@@ -3051,7 +3024,7 @@
     display: grid;
     grid-template-columns: 1fr 340px;
     gap: 24px;
-    align-items: center;
+    align-items: stretch;
     position: relative;
     overflow: hidden;
   }
@@ -3067,9 +3040,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    background: #f4f5f7;
+    border: 1px solid #e8e8ee;
+    color: #1c1e22;
     flex-shrink: 0;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
   }
   .divisi-hero-title {
     font-size: 24px;
@@ -3085,24 +3059,33 @@
     max-width: 560px;
   }
   .divisi-manager-box {
-    background: var(--card-bg-subtle);
-    border: 1px solid var(--separator);
+    background: #fafafb;
+    border: 1px solid #ececf1;
     border-radius: var(--radius-md);
-    padding: 14px 18px;
+    padding: 16px 18px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 8px;
   }
   .manager-box-header {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
   }
-  .manager-avatar-dot {
-    width: 10px;
-    height: 10px;
+  .manager-avatar {
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    background: var(--accent);
+    background: #eef0f3;
+    border: 1px solid #e4e5ea;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #4b4f57;
+    flex-shrink: 0;
   }
   .manager-name {
     font-size: 13px;
@@ -3155,7 +3138,7 @@
     font-size: 26px;
     font-weight: 700;
     font-family: var(--font-sans);
-    color: var(--accent);
+    color: var(--label-primary);
     letter-spacing: -0.02em;
   }
   .divisi-bar-track {
@@ -3167,7 +3150,7 @@
   }
   .divisi-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--accent) 0%, #34c759 100%);
+    background: var(--accent);
     border-radius: 999px;
     transition: width 0.4s var(--ease-apple);
   }
@@ -3229,17 +3212,18 @@
     cursor: pointer;
   }
   .divisi-soal-item:hover {
-    transform: translateY(-2px);
-    border-color: rgba(0, 113, 227, 0.3);
-    box-shadow: var(--shadow-float);
+    transform: translateY(-1px);
+    border-color: #d5d6dd;
+    box-shadow: 0 8px 20px rgba(16, 18, 22, 0.06);
   }
   .divisi-soal-item.completed {
-    border-color: rgba(52, 199, 89, 0.3);
-    background: linear-gradient(180deg, #ffffff 0%, rgba(52, 199, 89, 0.03) 100%);
+    border-color: #e0e1e7;
+    background: #ffffff;
   }
   .divisi-soal-item.active-item {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 2px var(--accent-subtle);
+    border-color: #c9cad2;
+    box-shadow: none;
+    background: #fbfbfc;
   }
   .soal-left-content {
     display: flex;
@@ -4100,12 +4084,7 @@
      VISUAL REFRESH — LANDING, DIVISION HUB & WORKSPACE
      ======================================================== */
   body {
-    background:
-      radial-gradient(1100px 620px at 6% -12%, rgba(0, 113, 227, 0.10), transparent 62%),
-      radial-gradient(900px 520px at 102% -6%, rgba(168, 85, 247, 0.075), transparent 58%),
-      radial-gradient(900px 640px at 50% 112%, rgba(16, 185, 129, 0.06), transparent 62%),
-      var(--system-bg);
-    background-attachment: fixed;
+    background: #f5f5f7;
   }
   ::selection { background: rgba(0, 113, 227, 0.18); }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
@@ -4121,29 +4100,17 @@
     gap: 48px;
     align-items: center;
     padding: 52px;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 30px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(250, 252, 255, 0.92) 58%, rgba(238, 247, 255, 0.9) 100%);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 24px 70px rgba(0, 60, 130, 0.08);
+    border: 1px solid #e8e8ee;
+    border-radius: 28px;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 18px 50px rgba(16, 18, 22, 0.05);
     overflow: hidden;
   }
   .home-hero::before {
-    content: '';
-    position: absolute;
-    width: 420px; height: 420px;
-    right: -140px; top: -180px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(0, 113, 227, 0.16), transparent 68%);
-    pointer-events: none;
+    display: none;
   }
   .home-hero::after {
-    content: '';
-    position: absolute;
-    width: 360px; height: 360px;
-    left: -120px; bottom: -220px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(52, 199, 89, 0.10), transparent 68%);
-    pointer-events: none;
+    display: none;
   }
   .hero-copy { position: relative; z-index: 1; }
   .hero-eyebrow {
@@ -4153,9 +4120,9 @@
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.01em;
-    color: #0071e3;
-    background: rgba(0, 113, 227, 0.08);
-    border: 1px solid rgba(0, 113, 227, 0.14);
+    color: var(--label-secondary);
+    background: #f4f5f7;
+    border: 1px solid #e8e8ee;
     padding: 5px 11px;
     border-radius: var(--radius-full);
   }
@@ -4167,11 +4134,8 @@
     margin: 18px 0 16px;
   }
   .hero-title-v2 .grad {
-    background: linear-gradient(118deg, #0071e3 0%, #0093a8 46%, #16a34a 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: var(--accent);
+    -webkit-text-fill-color: currentColor;
   }
   .hero-desc-v2 {
     font-size: 15.5px;
@@ -4194,8 +4158,8 @@
     border-radius: 50%;
     border: 2px solid #fff;
     margin-left: -7px;
-    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-    color: #1d4ed8;
+    background: #eef0f3;
+    color: #4b4f57;
     font-size: 9.5px;
     font-weight: 700;
     display: inline-flex;
@@ -4203,9 +4167,6 @@
     justify-content: center;
   }
   .proof-avatars span:first-child { margin-left: 0; }
-  .proof-avatars span:nth-child(2) { background: linear-gradient(135deg, #d1fae5, #a7f3d0); color: #047857; }
-  .proof-avatars span:nth-child(3) { background: linear-gradient(135deg, #ede9fe, #ddd6fe); color: #6d28d9; }
-  .proof-avatars span:nth-child(4) { background: linear-gradient(135deg, #fef3c7, #fde68a); color: #b45309; }
   .home-hero .hero-cta .btn { padding: 11px 20px; font-size: 14.5px; }
   .home-hero .hero-cta .btn:not(.btn-outline) {
     box-shadow: 0 8px 22px rgba(0, 113, 227, 0.28);
@@ -4364,10 +4325,10 @@
   .section-head { margin-bottom: 20px; }
   .section-kicker {
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 650;
     text-transform: uppercase;
-    letter-spacing: 0.09em;
-    color: var(--accent);
+    letter-spacing: 0.1em;
+    color: var(--label-tertiary);
     margin-bottom: 6px;
   }
   .section-title {
@@ -4389,28 +4350,18 @@
     gap: 14px;
   }
   .division-tile {
-    --div-color: #0071e3;
     position: relative;
-    background: var(--card-bg);
-    border: 1px solid var(--separator);
+    background: #ffffff;
+    border: 1px solid #e8e8ee;
     border-radius: 16px;
     padding: 20px;
     cursor: pointer;
     transition: transform 0.22s var(--ease-apple), box-shadow 0.22s var(--ease-apple), border-color 0.22s;
-    overflow: hidden;
-  }
-  .division-tile::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 auto;
-    height: 3px;
-    background: var(--div-color);
-    opacity: 0.85;
   }
   .division-tile:hover {
-    transform: translateY(-4px);
-    border-color: color-mix(in srgb, var(--div-color) 35%, transparent);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    border-color: #d5d6dd;
+    box-shadow: 0 12px 28px rgba(16, 18, 22, 0.07);
   }
   .division-tile .tile-icon {
     width: 36px; height: 36px;
@@ -4418,10 +4369,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    background: var(--div-color);
+    color: #1c1e22;
+    background: #f4f5f7;
+    border: 1px solid #e8e8ee;
     margin-bottom: 14px;
-    box-shadow: 0 4px 12px color-mix(in srgb, var(--div-color) 30%, transparent);
   }
   .division-tile h3 { font-size: 14.5px; font-weight: 650; letter-spacing: -0.015em; margin-bottom: 5px; }
   .division-tile p { font-size: 12px; line-height: 1.45; color: var(--label-secondary); margin-bottom: 12px; }
@@ -4434,8 +4385,8 @@
     padding-top: 11px;
     border-top: 1px solid var(--separator);
   }
-  .tile-meta .arrow { color: var(--div-color); font-weight: 700; transition: transform 0.2s; }
-  .division-tile:hover .tile-meta .arrow { transform: translateX(4px); }
+  .tile-meta .arrow { color: var(--label-secondary); font-weight: 700; transition: transform 0.2s, color 0.2s; }
+  .division-tile:hover .tile-meta .arrow { transform: translateX(4px); color: var(--label-primary); }
 
   .workflow-grid {
     display: grid;
@@ -4481,8 +4432,9 @@
   .home-features .feature-icon-wrap {
     width: 34px; height: 34px;
     border-radius: 10px;
-    background: var(--accent-subtle);
-    color: var(--accent);
+    background: #f4f5f7;
+    border: 1px solid #e8e8ee;
+    color: var(--label-primary);
   }
 
   .final-cta {
@@ -4527,26 +4479,21 @@
   .grid-divisi { gap: 16px; }
   .card-divisi {
     position: relative;
-    overflow: hidden;
     padding: 24px;
-    background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
-  }
-  .card-divisi::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 auto;
-    height: 3px;
-    background: var(--div-color, var(--accent));
+    background: #ffffff;
   }
   .card-divisi:hover {
-    border-color: color-mix(in srgb, var(--div-color, var(--accent)) 34%, transparent);
-    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.09);
+    border-color: #d5d6dd;
+    box-shadow: 0 14px 32px rgba(16, 18, 22, 0.07);
   }
   .card-divisi .divisi-badge {
     width: 44px;
     height: 44px;
     border-radius: 12px;
-    box-shadow: 0 5px 14px color-mix(in srgb, var(--div-color, var(--accent)) 26%, transparent);
+    background: #f4f5f7 !important;
+    border: 1px solid #e8e8ee;
+    color: #1c1e22 !important;
+    box-shadow: none;
   }
   .card-divisi h3 { font-size: 18px; }
   .mentor-row {
@@ -4563,7 +4510,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    background: #eceef2;
+    color: #55595f;
     font-size: 9px;
     font-weight: 700;
     flex-shrink: 0;
@@ -4628,38 +4576,26 @@
      REFINEMENT — BENTO STATS, DATASET BAR, REWARD CARD
      ======================================================== */
   .stats-band {
-    grid-template-columns: 1.35fr 1fr 1fr 1fr;
-    gap: 14px;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    gap: 0;
     margin-top: 20px;
-    background: transparent;
-    border: 0;
-    border-radius: 0;
-    overflow: visible;
+    background: #ffffff;
+    border: 1px solid #e8e8ee;
+    border-radius: 16px;
+    overflow: hidden;
   }
   .stats-band .bento-cell {
     position: relative;
     text-align: left;
-    padding: 20px 22px;
-    border: 1px solid var(--separator);
-    border-radius: 18px;
-    background: #ffffff;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+    padding: 18px 22px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
     backdrop-filter: none;
   }
-  .stats-band .bento-cell:nth-child(1) {
-    background: linear-gradient(135deg, #f4f0ff 0%, #eae3ff 100%);
-    border-color: #ddd6fe;
-  }
-  .stats-band .bento-cell:nth-child(2) {
-    background: linear-gradient(135deg, #f7ffe8 0%, #e8fbc6 100%);
-    border-color: #d9f99d;
-  }
-  .stats-band .bento-cell:nth-child(3) {
-    background: #ffffff;
-  }
-  .stats-band .bento-cell:nth-child(4) {
-    background: linear-gradient(135deg, #fff9f0 0%, #ffedd5 100%);
-    border-color: #fed7aa;
+  .stats-band .bento-cell + .bento-cell {
+    border-left: 1px solid #eeeef2;
   }
   .bento-topline {
     display: flex;
@@ -4667,18 +4603,19 @@
     justify-content: space-between;
     gap: 8px;
     margin-bottom: 10px;
-    color: var(--label-secondary);
-    font-size: 11px;
+    color: var(--label-tertiary);
+    font-size: 10.5px;
     font-weight: 650;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
   }
-  .bento-topline svg { color: var(--label-tertiary); }
+  .bento-topline svg { color: #c3c5cc; }
   .stats-band b {
     font-size: 34px;
     line-height: 1;
     margin-bottom: 4px;
     letter-spacing: -0.045em;
+    font-weight: 650;
   }
   .stats-band .bento-cell > span {
     display: block;
@@ -4706,13 +4643,13 @@
     width: 34px;
     height: 34px;
     border-radius: 10px;
-    background: linear-gradient(135deg, #f0f7ff, #e2efff);
-    color: var(--accent);
+    background: #f4f5f7;
+    color: var(--label-primary);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    border: 1px solid rgba(0, 113, 227, 0.12);
+    border: 1px solid #e8e8ee;
   }
   .dataset-copy { min-width: 0; }
   .dataset-eyebrow {
@@ -4784,27 +4721,27 @@
     color: #6b7280;
   }
 
-  /* Reward card — playful learning reference */
+  /* Reward card — quiet surface, single reward accent */
   .mission-reward-card {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 11px 12px;
-    border: 1px solid #e9defc;
+    border: 1px solid #e8e8ee;
     border-radius: 14px;
-    background: linear-gradient(135deg, #f7f2ff 0%, #fff8ef 100%);
+    background: #fafafb;
   }
   .reward-medal {
     width: 32px;
     height: 32px;
     border-radius: 10px;
-    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
-    color: #ffffff;
+    background: #ffffff;
+    border: 1px solid #e8e8ee;
+    color: #3f434a;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 5px 14px rgba(109, 40, 217, 0.28);
   }
   .reward-copy { min-width: 0; }
   .reward-copy b {
@@ -4833,9 +4770,13 @@
     flex-shrink: 0;
   }
   @media (max-width: 1080px) {
+    .division-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .stats-band { grid-template-columns: 1.2fr 1fr; }
+    .stats-band .bento-cell:nth-child(3) { border-left: 0; border-top: 1px solid #eeeef2; }
+    .stats-band .bento-cell:nth-child(4) { border-top: 1px solid #eeeef2; }
   }
   @media (max-width: 880px) {
+    .division-tiles { grid-template-columns: 1fr; }
     .stats-band { grid-template-columns: 1fr 1fr; }
     .stats-band .bento-cell { padding: 16px; }
     .stats-band b { font-size: 26px; }
@@ -5312,25 +5253,25 @@
       <p class="section-sub">Setiap divisi punya karakter manajer, tipe data, dan jebakan rumus yang berbeda — seperti hari pertama kerja.</p>
     </div>
     <div class="division-tiles">
-      <div class="division-tile" style="--div-color:#db2777" onclick="bukaDivisiDetail('sales')">
+      <div class="division-tile" onclick="bukaDivisiDetail('sales')">
         <div class="tile-icon"><svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>Sales &amp; Marketing</h3>
         <p>Rekap omzet cabang, komisi target, dan lookup data tim sales.</p>
         <div class="tile-meta"><span>Bu Rina · 8 soal</span><span class="arrow">→</span></div>
       </div>
-      <div class="division-tile" style="--div-color:#059669" onclick="bukaDivisiDetail('keuangan')">
+      <div class="division-tile" onclick="bukaDivisiDetail('keuangan')">
         <div class="tile-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
         <h3>Keuangan &amp; Akuntansi</h3>
         <p>Arus kas, rekonsiliasi tagihan, dan rata-rata pengeluaran.</p>
         <div class="tile-meta"><span>Pak Hendra · 8 soal</span><span class="arrow">→</span></div>
       </div>
-      <div class="division-tile" style="--div-color:#4f46e5" onclick="bukaDivisiDetail('admin')">
+      <div class="division-tile" onclick="bukaDivisiDetail('admin')">
         <div class="tile-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
         <h3>Administrasi &amp; GA</h3>
         <p>Data karyawan, inventaris aset IT, dan arsip kantor.</p>
         <div class="tile-meta"><span>Pak Dani · 8 soal</span><span class="arrow">→</span></div>
       </div>
-      <div class="division-tile" style="--div-color:#d97706" onclick="bukaDivisiDetail('hr')">
+      <div class="division-tile" onclick="bukaDivisiDetail('hr')">
         <div class="tile-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>Human Resources</h3>
         <p>Presensi, lembur, dan komponen gaji staf.</p>
@@ -5459,7 +5400,7 @@
     <!-- Mini Manager Mascot Briefing Box -->
     <div class="divisi-manager-box">
       <div class="manager-box-header">
-        <div class="manager-avatar-dot"></div>
+        <div class="manager-avatar" id="hubManagerAvatar">RN</div>
         <div>
           <div class="manager-name" id="hubManagerName">Bu Rina</div>
           <div class="manager-role" id="hubManagerRole">VP of Sales &amp; Marketing</div>
@@ -8234,18 +8175,17 @@ function renderDivisiCards() {
 
     const el = document.createElement('div');
     el.className = 'card-divisi';
-    el.style.setProperty('--div-color', d.warna);
     const mentorInitials = (mascot.name || '?').split(' ').filter(w => !/^(bu|pak|ibu|bapak)$/i.test(w)).map(w => w[0]).slice(0, 2).join('').toUpperCase();
     el.innerHTML = `
       <div>
         <div class="card-top">
-          <div class="divisi-badge" style="background:${d.warna}">${d.icon}</div>
+          <div class="divisi-badge">${d.icon}</div>
           <span class="pill-tag ${isDone ? 'pill-success' : ''}">${done}/${total} Selesai</span>
         </div>
         <h3>${d.label}</h3>
         <p>${d.desk}</p>
         <div class="mentor-row">
-          <span class="mentor-avatar" style="background:${d.warna}">${mentorInitials}</span>
+          <span class="mentor-avatar">${mentorInitials}</span>
           <span>Pendamping: <b>${mascot.name}</b> · ${mascot.role}</span>
         </div>
 
@@ -8255,7 +8195,7 @@ function renderDivisiCards() {
         </div>
         <div style="display: flex; justify-content: space-between; font-size: 11.5px; color: var(--label-secondary); margin-bottom: 8px;">
           <span>${done} dari ${total} Kasus Selesai</span>
-          <span style="font-weight: 600; color: var(--accent);">${pct}%</span>
+          <span style="font-weight: 600; color: var(--label-primary);">${pct}%</span>
         </div>
       </div>
       <div class="card-bottom">
@@ -8295,7 +8235,7 @@ function bukaGuidebookDivisi(k) {
       let tokensHtml = '';
       let legendHtml = '';
       const colors = ['token-fn', 'token-arg1', 'token-arg2', 'token-arg3', 'token-arg4'];
-      const bulletColors = ['#0071e3', '#248a3d', '#b45309', '#8944ab', '#dc2626'];
+      const bulletColors = ['#101114', '#8a8f98', '#8a8f98', '#8a8f98', '#8a8f98'];
 
       fn.tokens.forEach((t, tIdx) => {
         const cls = colors[tIdx % colors.length];
@@ -8433,7 +8373,6 @@ function renderDivisiDetail(k) {
   const hubBadgeIcon = document.getElementById('hubDivisiBadgeIcon');
   if (hubBadgeIcon) {
     hubBadgeIcon.innerHTML = d.icon;
-    hubBadgeIcon.style.background = d.warna;
   }
 
   const hubTitle = document.getElementById('hubDivisiTitle');
@@ -8444,6 +8383,11 @@ function renderDivisiDetail(k) {
 
   const hubMgrName = document.getElementById('hubManagerName');
   if (hubMgrName && mascot) hubMgrName.textContent = mascot.name;
+
+  const hubMgrAvatar = document.getElementById('hubManagerAvatar');
+  if (hubMgrAvatar && mascot) {
+    hubMgrAvatar.textContent = (mascot.name || '?').split(' ').filter(w => !/^(bu|pak|ibu|bapak)$/i.test(w)).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+  }
 
   const hubMgrRole = document.getElementById('hubManagerRole');
   if (hubMgrRole && mascot) hubMgrRole.textContent = mascot.role;
@@ -8506,7 +8450,7 @@ function renderDivisiDetail(k) {
         </div>
         <div class="soal-desc">${esc(gb.subtitle)}</div>
         <div class="soal-chips-row">
-          <span class="target-badge-pill" style="color:var(--accent);border-color:rgba(0,113,227,0.25);background:rgba(0,113,227,0.06)">Tipe: Panduan Konsep</span>
+          <span class="target-badge-pill">Tipe: Panduan Konsep</span>
           <span class="func-badge-pill">Estimasi: ${esc(gb.readTime)}</span>
         </div>
       </div>
